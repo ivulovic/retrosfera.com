@@ -16,6 +16,7 @@ import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import Header from './components/Header';
 import SettingsPage from './pages/SettingsPage';
+import ApplicationsPage from './pages/ApplicationsPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -31,6 +32,7 @@ export function App() {
       <Header />
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route path={process.env.PUBLIC_URL + '/applications'} component={ApplicationsPage} />
         <Route path={process.env.PUBLIC_URL + '/settings'} component={SettingsPage} />
         <Route component={NotFoundPage} />
       </Switch>

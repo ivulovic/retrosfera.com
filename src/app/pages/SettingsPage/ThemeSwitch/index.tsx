@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { FormLabel } from 'app/components/FormLabel';
 import { Radio } from 'app/components/Radio';
 import styled from 'styled-components/macro';
@@ -22,7 +21,6 @@ export function ThemeSwitch() {
 
   return (
     <Wrapper>
-      <FormLabel>{t('chooseOne')}</FormLabel>
       <Themes>
         <Radio
           id="system"

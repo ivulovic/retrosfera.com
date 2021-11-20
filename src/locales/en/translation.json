@@ -1,16 +1,33 @@
 {
   "appName":"Ретросфера",
   "applications":"Applications",
+  "applicationsDescription":"To use our applications you only need to create an account. The applications are completely free to use.",
   "settings":"Settings",
-  "settingsDescription":"Page where You can update and change Your settings. Settings you change will be saved in your account settings.",
+  "settingsDescription":"Settings you change will be saved in your account settings.",
   "theme":"Theme",
   "themeDescription":"Once you change theme, it will be applied to the whole application.",
   "language":"Language",
   "languageDescription":"Once you change language, language will be applied to the whole application.",
-  "chooseOne":"Select one of the offered options",
   "systemTheme":"System theme",
   "lightTheme":"Light theme",
   "darkTheme":"Dark theme",
+  "moreInfo":"More information",
+
+  "wishlistTitle": "Wishlist",
+  "wishlistDescription": "With this app you will be able to keep all you wishes from almost all stores in the world in a single place. Share the wishlist with your friends and family, and some of the wishes might be even fulfilled!",
+  
+  "cryptoniumTitle": "Cryptonium",
+  "cryptoniumDescription": "Have an insight into the current prices on the stock exchange of your favorite cryptocurrencies. Calculate the current value of your shares, as well as how much you have earned since the time of purchase.",
+  
+  "organizerTitle": "Organizer",
+  "organizerDescription": "At some time we all need an app that will help us organise better. With this app you can write down your tasks and measure progress of each.",
+
+  "blogTitle": "Blog",
+  "blogDescription": "This app will help you build your own blog. With the rich text editor we have, you will have possibility to write every thought, insert a photo or video in the post and then share it with public.",
+
+  "notesTitle": "Notes",
+  "notesDescription": "App for storing your notes. Write down your thoughts, attach images, videos and keep everything into this rich text editor.",
+
   "routingFeature": {
     "title": "Industry-standard Routing",
     "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."

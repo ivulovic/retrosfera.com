@@ -34,14 +34,14 @@ export default function SettingsPage(): JSX.Element{
         </Subtitle>
         <List>
           <ListItem icon={ThemeIcon}>
-            <Subtitle>{t('theme')}</Subtitle>
+            <Subtitle type="primary">{t('theme')}</Subtitle>
             <Paragraph>
               {t('themeDescription')}
             </Paragraph>
             <ThemeSwitch />
           </ListItem>
           <ListItem icon={LangOutline}>
-            <Subtitle>{t('language')}</Subtitle>
+            <Subtitle type="primary">{t('language')}</Subtitle>
             <Paragraph>
               {t('languageDescription')}
             </Paragraph>

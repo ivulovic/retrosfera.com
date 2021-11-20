@@ -1,0 +1,28 @@
+.card{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  .link{
+    text-decoration: none;
+    color: var(--text);
+  }
+  .card-media{
+    width: 100%;
+    min-height: 225px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    // background-color: var(--border-light);
+  }
+  .card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--border-variant);
+    .title{
+      margin-top: 0;
+    }
+    .subtitle{
+      margin-bottom: 0;
+    }
+  }
+}
