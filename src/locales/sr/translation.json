@@ -1,0 +1,31 @@
+{
+  "appName":"Ретросфера",
+  "applications":"Апликације",
+  "settings":"Подешавања",
+  "settingsDescription":"Страница на којој можете да промените подашавања апликације. Подешавања која промените ће бити запамћена у подешавањима Вашег налога.",
+  "theme":"Тема",
+  "themeDescription":"Када промените тему, нова тема ће бити примењена на целој апликацији.",
+  "language":"Језик",
+  "languageDescription":"Када промените језик, нови језик ће бити примењен на целој апликацији.",
+  "chooseOne":"Одаберите једну од понуђених опција",
+  "systemTheme":"Системска тема",
+  "lightTheme":"Светла тема",
+  "darkTheme":"Тамна тема",
+  "routingFeature": {
+    "title": "Industry-standard Routing",
+    "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."
+  },
+  "i18nFeature": {
+    "title": "i18n Internationalization & Pluralization",
+    "selectLanguage": "Select Language",
+    "description": "Scalable apps need to support multiple languages, easily add and support multiple languages. Change the language below to see how instantly it updates the page without refreshing."
+  },
+  "feedbackFeature": {
+    "title": "Instant Feedback",
+    "description": "Enjoy the best DX and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page."
+  },
+  "scaffoldingFeature": {
+    "title": "Quick Scaffolding",
+    "description": "Automate the creation of components, features, routes, selectors and sagas - and their tests - right from the CLI! Avoid fighting the glue of your code and focus on your app!"
+  }
+}

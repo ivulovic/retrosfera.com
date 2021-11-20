@@ -1,0 +1,65 @@
+.header{
+  box-shadow: 0 1px 0 0 var(--border-light);
+  height: 4rem;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--background);
+  z-index: 2;
+
+  @supports (backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    background-color: var(--background-backdrop);
+  }
+
+  .page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .logo-wrapper{
+      display: flex;
+      align-items: center;
+      .logo-title{
+        font-size: 2rem;
+        color: var(--text);
+        font-weight: bold;
+        margin-right: 1rem;
+        text-decoration: none;
+      }
+      .logo-description{
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: normal;
+      }
+    }
+    .nav-wrapper{
+      display: flex;
+      margin-right: -1rem;
+      .nav-item{
+        color: var(--text-secondary);
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        padding: 0.25rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        align-items: center;
+        &.active{
+          color: var(--primary);
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          opacity: 0.4;
+        }
+        .icon {
+          margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+  
+}
