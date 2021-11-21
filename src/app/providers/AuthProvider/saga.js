@@ -88,7 +88,6 @@ export function* setupAuthProvider() {
     yield put(successfulLogin(res));
   } catch (e) {}
   const token = getUserAuthToken();
-  console.log(token);
   if (token) {
     // update token
     updateUserAuthToken(token);
