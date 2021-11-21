@@ -1,12 +1,11 @@
-import React from 'react';
-
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from 'app/providers/AuthProvider/actions';
 
 export default function LogoutPage() {
   const dispatch = useDispatch();
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(logoutUser());
-  }, [dispatch]);
-  return null;
+  }, []);
+  return <div className="page-wrapper"></div>;
 }

@@ -16,7 +16,7 @@ import { useRouteMatch } from 'react-router';
 
 export default function WishlistOverview(): JSX.Element {
   const { t } = useTranslation();
-  const { url, path } = useRouteMatch();
+  const { url } = useRouteMatch();
   const dispatch = useDispatch();
   const userEmail = useSelector(makeSelectUserEmail);
 
@@ -26,10 +26,13 @@ export default function WishlistOverview(): JSX.Element {
   }, []);
   const handleWishlistLinkCopy = () => {
     const sharedWishlistLink = window.origin + `${url}/users/` + userEmail;
-    navigator.clipboard.writeText(sharedWishlistLink).then(function () {
-      successNotification(buildMessageFromDev(t('wishlistLinkCopied')));
-    }, function (err) {});
-  }
+    navigator.clipboard.writeText(sharedWishlistLink).then(
+      function () {
+        successNotification(buildMessageFromDev(t('wishlistLinkCopied')));
+      },
+      function (err) {},
+    );
+  };
   return (
     <>
       <Helmet>
@@ -38,7 +41,9 @@ export default function WishlistOverview(): JSX.Element {
       </Helmet>
       <div className="wishlist-header-row">
         <Title>{t('wishlistTitle')}</Title>
-        <Button onClick={handleWishlistLinkCopy} kind="icon"><ShareOutline/></Button>
+        <Button onClick={handleWishlistLinkCopy} kind="icon">
+          <ShareOutline />
+        </Button>
       </div>
       <WishlistForm />
       <div className="wishes">

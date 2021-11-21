@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import ListItemContent from './ListItemContent';
 import './style.scss';
 

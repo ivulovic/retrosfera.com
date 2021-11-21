@@ -32,10 +32,10 @@ import NotificationProvider from 'app/providers/NotificationProvider';
 
 // Observe loading of Inter (to remove 'Inter', remove the <link> tag in
 // the index.html file and this observer)
-const openSansObserver = new FontFaceObserver('Play', {});
+const fontObserver = new FontFaceObserver('Play', {});
 
 // When Inter is loaded, add a font-family using Inter to the body
-openSansObserver.load().then(() => {
+fontObserver.load().then(() => {
   document.body.classList.add('fontLoaded');
 });
 

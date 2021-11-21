@@ -86,43 +86,40 @@ export function* setupAuthProvider() {
       makeGetReq(),
     );
     yield put(successfulLogin(res));
-  } catch (e) {
-    /** prettier-ignore */
+  } catch (e) {}
+  const token = getUserAuthToken();
+  console.log(token);
+  if (token) {
+    // update token
+    updateUserAuthToken(token);
+
+    // notify reducer that user is logged in but waiting on user information
+    yield put(hasTokenButWaitingOnUserInformation());
+
+    // yield put(startLoader());
+    try {
+      // api call
+      const res = yield call(
+        request,
+        makeApiUrl('/auth/account/info'),
+        makeGetReq(),
+      );
+      // TODO: fetch applications
+      yield put(successfulLogin(res));
+    } catch (e) {
+      console.log({ e });
+      // handle errror
+      if (!e.response.ok) {
+        yield put(logoutUser());
+      }
+      // yield handleApiError(e, errorNotification);
+    }
+
+    return;
   }
-  // const token = getUserAuthToken();
-  // console.log(token);
-  // if (token) {
-  //   // update token
-  //   updateUserAuthToken(token);
-
-  //   // notify reducer that user is logged in but waiting on user information
-  //   yield put(hasTokenButWaitingOnUserInformation());
-
-  //   // yield put(startLoader());
-  //   try {
-  //     // api call
-  //     const res = yield call(
-  //       request,
-  //       makeApiUrl('/auth/account/info'),
-  //       makeGetReq(),
-  //     );
-  //     // TODO: fetch applications
-  //     yield put(successfulLogin(res));
-  //     // ws auth
-  //   } catch (e) {
-  //     console.log({ e });
-  //     // handle errror
-  //     if (!e.response.ok) {
-  //       yield put(logoutUser());
-  //     }
-  //     // yield handleApiError(e, errorNotification);
-  //   }
-
-  //   return;
-  // }
 
   // guest user
-  // yield put(guestUser());
+  yield put(guestUser());
 }
 
 /**
@@ -175,14 +172,10 @@ export function* unsubscribeAuthTokenEmitter(action) {
   try {
     const { payload } = action;
     const { sendRequest } = payload;
-    //
     const tokenExist = checkIfUserAuthTokenExistsAndUpdateIfItDoes();
     if (tokenExist && sendRequest) {
-      // yield call(request, makeApiUrl('/api/user/logout'), makePostReq());
+      yield call(request, makeApiUrl('/auth/logout'), makePostReq());
     }
-
-    // unsubscribe from account
-    // yield put(unsubscribeFromAccountBalance());
   } catch (e) {
     // errorNotification(buildMessageFromDev('commonMessages.errorOccurred'));
     console.log('logout failed...');

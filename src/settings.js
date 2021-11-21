@@ -66,7 +66,7 @@ export const cookie = {
  * @data {string} defaultRedirectRouteForPrivateRouter - Path where user is going to be redirected in case that Route criteria isn't satisfied
  * @data {string} defaultRedirectRouteForOnlyPublicRouter - Path where user is going to be redirected in case that Route criteria isn't satisfied
  */
-export const defaultRedirectRouteForPrivateRouter = '/'; //sign-in
+export const defaultRedirectRouteForPrivateRouter = '/login'; //sign-in
 export const defaultRedirectRouteForOnlyPublicRouter = '/';
 
 // notification lasting

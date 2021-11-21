@@ -1,9 +1,9 @@
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { Route, Switch, useRouteMatch} from 'react-router';
+import { Route, Switch, useRouteMatch } from 'react-router';
 import { WISHLIST_SCOPE } from './constants';
-import { wishlistsSaga } from './saga'; 
+import { wishlistsSaga } from './saga';
 import { reducer } from './slice';
-import './style.scss'; 
+import './style.scss';
 
 import WishlistOverview from './WishlistOverview';
 import WishlistUserInfo from './WishlistUsersInfo';
@@ -19,15 +19,10 @@ export default function WishlistPage(): JSX.Element {
   return (
     <>
       <Switch>
-        {isUserLoggedIn && <Route 
-          exact 
-          path={path} 
-          component={WishlistOverview} 
-        />}
-        <Route 
-          path={path + '/users/:userId'} 
-          component={WishlistUserInfo} 
-        />
+        {isUserLoggedIn && (
+          <Route exact path={path} component={WishlistOverview} />
+        )}
+        <Route path={path + '/users/:userId'} component={WishlistUserInfo} />
       </Switch>
     </>
   );

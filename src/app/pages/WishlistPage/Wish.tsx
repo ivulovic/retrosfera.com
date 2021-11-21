@@ -25,12 +25,16 @@ export default function Wish(props): JSX.Element {
         style={{ backgroundImage: `url(${wish.image})` }}
       />
       <div className="wish-controls">
-        <Button kind="icon" >
+        <Button kind="icon">
           <a className="link" href={wish.url} target="_blank" rel="noreferrer">
-            <ExternalLinkOutline/>
+            <ExternalLinkOutline />
           </a>
         </Button>
-        {props.showControls && <Button  kind="icon" onClick={handleRemove}><RemoveOutline/></Button>}
+        {props.showControls && (
+          <Button kind="icon" onClick={handleRemove}>
+            <RemoveOutline />
+          </Button>
+        )}
       </div>
     </div>
   );

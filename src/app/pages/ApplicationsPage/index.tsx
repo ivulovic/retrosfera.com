@@ -1,8 +1,11 @@
-import { makeSelectInitializedAuth, makeSelectIsUserAuthenticated } from 'app/providers/AuthProvider/selectors';
+import PrivateRoute from 'app/components/Routes/PrivateRoute';
+import PublicRoute from 'app/components/Routes/PublicRoute';
+import {
+  makeSelectInitializedAuth,
+  makeSelectIsUserAuthenticated,
+} from 'app/providers/AuthProvider/selectors';
 import { useSelector } from 'react-redux';
-import { Switch, Route, useRouteMatch, Redirect } from 'react-router';
-import { NotAuthenticatedPage } from '../NotAuthenticated/Loadable';
-import { NotFoundPage } from '../NotFoundPage';
+import { Switch, useRouteMatch } from 'react-router';
 import ApplicationMain from './Main';
 import ApplicationOverview from './Overview';
 import './style.scss';
@@ -10,20 +13,16 @@ import './style.scss';
 export default function ApplicationsPage() {
   let { path } = useRouteMatch();
   const isUserLoggedIn = useSelector(makeSelectIsUserAuthenticated);
+  const isAuthInitialized = useSelector(makeSelectInitializedAuth);
   return (
     <div className="page-wrapper applications-page">
       <Switch>
-        <Route 
-          exact 
-          path={path} 
-          component={ApplicationOverview} 
-        />
-        {isUserLoggedIn && <Route 
-          path={path + '/:applicationId'} 
-          component={ApplicationMain} 
-        />}
-        <Route 
-          component={NotAuthenticatedPage} 
+        <PublicRoute exact path={path} component={ApplicationOverview} />
+        <PrivateRoute
+          isAuthenticated={isUserLoggedIn}
+          isAuthReady={isAuthInitialized}
+          path={path + '/:applicationId'}
+          component={ApplicationMain}
         />
       </Switch>
     </div>

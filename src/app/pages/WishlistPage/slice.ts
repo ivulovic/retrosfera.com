@@ -96,7 +96,6 @@ const wishlistsSlice = createSlice({
     loadOtherUserWishlistFail(state /**, action: PayloadAction<any> */) {
       state.loading = false;
     },
-
   },
 });
 

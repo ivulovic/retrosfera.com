@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import './style.scss';
 
 export default function ListItemContent({ children }) {

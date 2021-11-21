@@ -61,15 +61,15 @@ export function RegisterPage() {
       </Helmet>  */}
       <div className="page-wrapper auth-page">
         <div className="auth-form">
-            <Input
-              id="register-email"
-              label={t('email')}
-              name="email"
-              type={'text'}
-              value={undefined}
-              onChange={onChange}
-            />
-            {/* <Input
+          <Input
+            id="register-email"
+            label={t('email')}
+            name="email"
+            type={'text'}
+            value={undefined}
+            onChange={onChange}
+          />
+          {/* <Input
               id="register-firstName"
               label={t('firstName')}
               name="firstName"
@@ -85,28 +85,27 @@ export function RegisterPage() {
               value={undefined}
               onChange={onChange}
             /> */}
-            <Input
-              id="login-password"
-              label={t('password')}
-              name="password"
-              type={'password'}
-              value={undefined}
-              onChange={onChange}
-            />
-            <Input
-              id="login-confirmPassword"
-              label={t('confirmPassword')}
-              name="confirmPassword"
-              type={'password'}
-              value={undefined}
-              onChange={onChange}
-            />
+          <Input
+            id="login-password"
+            label={t('password')}
+            name="password"
+            type={'password'}
+            value={undefined}
+            onChange={onChange}
+          />
+          <Input
+            id="login-confirmPassword"
+            label={t('confirmPassword')}
+            name="confirmPassword"
+            type={'password'}
+            value={undefined}
+            onChange={onChange}
+          />
         </div>
         <div className="auth-form-footer">
           <Button onClick={onSubmit}>{t('register')}</Button>
           <div>
-            {t('alreadyRegistered')}{' '}
-            <Link to="/login">{t('login')}</Link>
+            {t('alreadyRegistered')} <Link to="/login">{t('login')}</Link>
           </div>
         </div>
       </div>

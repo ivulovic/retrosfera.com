@@ -19,13 +19,18 @@ import { LoginPage } from './pages/AuthPage/LoginPage';
 import LogoutPage from './pages/AuthPage/LogoutPage';
 import { useSelector } from 'react-redux';
 import {
+  makeSelectInitializedAuth,
   makeSelectIsUserAuthenticated,
 } from './providers/AuthProvider/selectors';
+import PublicRoute from 'app/components/Routes/PublicRoute';
+import HomePage from './pages/HomePage';
+import PrivateRoute from './components/Routes/PrivateRoute';
+import OnlyPublicRoute from './components/Routes/OnlyPublicRoute';
 
 export function App() {
   const { i18n } = useTranslation();
   const isUserLoggedIn = useSelector(makeSelectIsUserAuthenticated);
-  // const isAuthInitialized = useSelector(makeSelectInitializedAuth);
+  const isAuthInitialized = useSelector(makeSelectInitializedAuth);
   return (
     <BrowserRouter>
       <Helmet
@@ -38,28 +43,37 @@ export function App() {
       <Header />
 
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} render={() => {
-          return <div className="page-wrapper"><p>Home</p></div>
-        }} />
-        <Route
+        <PublicRoute
+          exact={true}
+          path={process.env.PUBLIC_URL + '/'}
+          component={HomePage}
+        />
+        <PublicRoute
           path={process.env.PUBLIC_URL + '/applications'}
           component={ApplicationsPage}
         />
-        <Route
+        <PublicRoute
           path={process.env.PUBLIC_URL + '/settings'}
           component={SettingsPage}
         />
-        {!isUserLoggedIn && <>
-          <Route path={process.env.PUBLIC_URL + '/login'} component={LoginPage} />
-          <Route
+        <OnlyPublicRoute
+          isAuthenticated={isUserLoggedIn}
+          isAuthReady={isAuthInitialized}
+          path={process.env.PUBLIC_URL + '/login'}
+          component={LoginPage}
+        />
+        <OnlyPublicRoute
+          isAuthenticated={isUserLoggedIn}
+          isAuthReady={isAuthInitialized}
           path={process.env.PUBLIC_URL + '/register'}
           component={RegisterPage}
         />
-        </>}
-        {isUserLoggedIn && <>
-          <Route path={process.env.PUBLIC_URL + '/logout'} component={LogoutPage} />
-        </>}
-       
+        <PrivateRoute
+          isAuthenticated={isUserLoggedIn}
+          isAuthReady={isAuthInitialized}
+          path={process.env.PUBLIC_URL + '/logout'}
+          component={LogoutPage}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

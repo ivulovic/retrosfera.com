@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux'; 
-import './style.scss'; 
-import { makeSelectUserEmail } from 'app/providers/AuthProvider/selectors';
-import { useParams, useRouteMatch } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import './style.scss';
+import { useParams } from 'react-router';
 import { selectLoading, selectOtherUserWishlist } from './selectors';
 import { useEffect } from 'react';
 import { actions } from './slice';
@@ -16,11 +15,11 @@ export default function WishlistUserInfo(): JSX.Element {
   const { t } = useTranslation();
   const params = useParams<UserInfoWishlistParams>();
   const dispatch = useDispatch();
-  
+
   const isLoading = useSelector(selectLoading);
   const wishlist = useSelector(selectOtherUserWishlist);
   useEffect(() => {
-    dispatch(actions.loadOtherUserWishlist({id: params.userId}));
+    dispatch(actions.loadOtherUserWishlist({ id: params.userId }));
   }, []);
 
   return (
@@ -29,8 +28,12 @@ export default function WishlistUserInfo(): JSX.Element {
         <title>{t('wishlistTitle')}</title>
         <meta name="description" content={t('wishlistDescription')} />
       </Helmet>
-      <Title>{t('wishlistOfTheUser')}: {params.userId}</Title>
-      {!isLoading && !wishlist.length && <Subtitle>{t('userHasNoWishes')}</Subtitle>}
+      <Title>
+        {t('wishlistOfTheUser')}: {params.userId}
+      </Title>
+      {!isLoading && !wishlist.length && (
+        <Subtitle>{t('userHasNoWishes')}</Subtitle>
+      )}
       <div className="wishes">
         {wishlist.map(wish => (
           <Wish key={wish.title} showControls={false} {...wish} />

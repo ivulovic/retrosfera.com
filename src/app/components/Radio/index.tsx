@@ -95,7 +95,6 @@ const Wrapper = styled.div`
       }
     }
 
-
     &:checked {
       + label {
         &::before {

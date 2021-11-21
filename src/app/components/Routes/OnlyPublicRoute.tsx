@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { defaultRedirectRouteForOnlyPublicRouter } from 'settings';
 
@@ -7,11 +6,11 @@ import { iff } from 'utils/iff';
 
 const OnlyPublicRoute = ({
   component: Component,
-  layout: Layout,
+  layout: Layout = Fragment,
   isAuthenticated,
   isAuthReady,
   ...rest
-}) => (
+}: any) => (
   <Route
     {...rest}
     render={props => {
@@ -34,13 +33,5 @@ const OnlyPublicRoute = ({
     }}
   />
 );
-
-OnlyPublicRoute.propTypes = {
-  component: PropTypes.PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  layout: PropTypes.PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  isAuthenticated: PropTypes.bool,
-  isAuthReady: PropTypes.bool,
-  location: PropTypes.any,
-};
 
 export default OnlyPublicRoute;
