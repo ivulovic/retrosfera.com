@@ -1,10 +1,9 @@
-import { FormLabel } from 'app/components/FormLabel';
 import { Radio } from 'app/components/Radio';
 import styled from 'styled-components/macro';
 import { useTranslation } from 'react-i18next';
 
 export function LanguageSwitch() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const language = event.target.value;
     i18n.changeLanguage(language);
@@ -39,9 +38,6 @@ export function LanguageSwitch() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${FormLabel} {
-    margin-bottom: 0.625rem;
-  }
 `;
 const Languages = styled.div`
   display: flex;

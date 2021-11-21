@@ -1,17 +1,15 @@
-import { ThemeKeyType } from './slice/types';
+import { ThemeEnum } from './slice/types';
 
-/* istanbul ignore next line */
 export const isSystemDark = window?.matchMedia
   ? window.matchMedia('(prefers-color-scheme: dark)')?.matches
   : undefined;
 
-export function saveTheme(theme: ThemeKeyType) {
+export function saveTheme(theme: ThemeEnum) {
   window.localStorage && localStorage.setItem('selectedTheme', theme);
 }
 
-/* istanbul ignore next line */
-export function getThemeFromStorage(): ThemeKeyType | null {
+export function getThemeFromStorage(): ThemeEnum | null {
   return window.localStorage
-    ? (localStorage.getItem('selectedTheme') as ThemeKeyType) || null
+    ? (localStorage.getItem('selectedTheme') as ThemeEnum) || null
     : null;
 }

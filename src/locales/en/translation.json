@@ -1,32 +1,32 @@
 {
-  "appName":"Ретросфера",
+  "appName": "Ретросфера",
   "login": "Sign in",
   "logout": "Sign out",
   "register": "Register",
   "alreadyRegistered": "Already have an account?",
   "noAccount": "No account yet?",
-  "applications":"Applications",
-  "password":"Password",
-  "confirmPassword":"Confirm password",
-  "email":"E-mail",
-  "applicationsDescription":"To use our applications you only need to create an account. The applications are completely free to use.",
-  "settings":"Settings",
-  "settingsDescription":"Settings you change will be saved in your account settings.",
-  "theme":"Theme",
-  "themeDescription":"Once you change theme, it will be applied to the whole application.",
-  "language":"Language",
-  "languageDescription":"Once you change language, language will be applied to the whole application.",
-  "systemTheme":"System theme",
-  "lightTheme":"Light theme",
-  "darkTheme":"Dark theme",
-  "moreInfo":"More information",
+  "applications": "Applications",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "email": "E-mail",
+  "applicationsDescription": "To use our applications you only need to create an account. The applications are completely free to use.",
+  "settings": "Settings",
+  "settingsDescription": "Settings you change will be saved in your account settings.",
+  "theme": "Theme",
+  "themeDescription": "Once you change theme, it will be applied to the whole application.",
+  "language": "Language",
+  "languageDescription": "Once you change language, language will be applied to the whole application.",
+  "systemTheme": "System theme",
+  "lightTheme": "Light theme",
+  "darkTheme": "Dark theme",
+  "moreInfo": "More information",
 
   "wishlistTitle": "Wishlist",
   "wishlistDescription": "With this app you will be able to keep all you wishes from almost all stores in the world in a single place. Share the wishlist with your friends and family, and some of the wishes might be even fulfilled!",
-  
+
   "cryptoniumTitle": "Cryptonium",
   "cryptoniumDescription": "Have an insight into the current prices on the stock exchange of your favorite cryptocurrencies. Calculate the current value of your shares, as well as how much you have earned since the time of purchase.",
-  
+
   "organizerTitle": "Organizer",
   "organizerDescription": "At some time we all need an app that will help us organise better. With this app you can write down your tasks and measure progress of each.",
 
@@ -36,30 +36,11 @@
   "notesTitle": "Notes",
   "notesDescription": "App for storing your notes. Write down your thoughts, attach images, videos and keep everything into this rich text editor.",
 
-
   "wishlistPlaceholder": "Enter valid https address",
 
   "loginToSeeApplication": "In order to see the application, you need to login first.",
   "wishlistLinkCopied": "Wishlist link copied",
   "wishRemoved": "Wish removed",
   "wishlistOfTheUser": "Wishlist of the",
-  "userHasNoWishes": "This user has no wishes at the moment",
-
-  "routingFeature": {
-    "title": "Industry-standard Routing",
-    "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."
-  },
-  "i18nFeature": {
-    "title": "i18n Internationalization & Pluralization",
-    "selectLanguage": "Select Language",
-    "description": "Scalable apps need to support multiple languages, easily add and support multiple languages. Change the language below to see how instantly it updates the page without refreshing."
-  },
-  "feedbackFeature": {
-    "title": "Instant Feedback",
-    "description": "Enjoy the best DX and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page."
-  },
-  "scaffoldingFeature": {
-    "title": "Quick Scaffolding",
-    "description": "Automate the creation of components, features, routes, selectors and sagas - and their tests - right from the CLI! Avoid fighting the glue of your code and focus on your app!"
-  }
+  "userHasNoWishes": "This user has no wishes at the moment"
 }

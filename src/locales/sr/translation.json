@@ -1,33 +1,33 @@
 {
-  "appName":"Ретросфера",
+  "appName": "Ретросфера",
   "login": "Пријави се",
   "logout": "Одјави се",
   "register": "Направи налог",
   "alreadyRegistered": "Налог већ постоји?",
   "noAccount": "Још увек немате налог?",
-  "applications":"Апликације",
-  "username":"Корисничко име",
-  "password":"Лозинка",
-  "confirmPassword":"Потврди лозинку",
-  "email":"Адреса електронске поште",
-  "applicationsDescription":"Да бисте користили наше апликације потребно је само да направите налог. Апликације су потпуно бесплатне за коришћење.",
-  "settings":"Подешавања",
-  "settingsDescription":"Подешавања која промените ће бити запамћена у подешавањима вашег налога.",
-  "theme":"Тема",
-  "themeDescription":"Када промените тему, нова тема ће бити примењена на целој апликацији.",
-  "language":"Језик",
-  "languageDescription":"Када промените језик, нови језик ће бити примењен на целој апликацији.",
-  "systemTheme":"Системска тема",
-  "lightTheme":"Светла тема",
-  "darkTheme":"Тамна тема",
-  "moreInfo":"Више информација",
+  "applications": "Апликације",
+  "username": "Корисничко име",
+  "password": "Лозинка",
+  "confirmPassword": "Потврди лозинку",
+  "email": "Адреса електронске поште",
+  "applicationsDescription": "Да бисте користили наше апликације потребно је само да направите налог. Апликације су потпуно бесплатне за коришћење.",
+  "settings": "Подешавања",
+  "settingsDescription": "Подешавања која промените ће бити запамћена у подешавањима вашег налога.",
+  "theme": "Тема",
+  "themeDescription": "Када промените тему, нова тема ће бити примењена на целој апликацији.",
+  "language": "Језик",
+  "languageDescription": "Када промените језик, нови језик ће бити примењен на целој апликацији.",
+  "systemTheme": "Системска тема",
+  "lightTheme": "Светла тема",
+  "darkTheme": "Тамна тема",
+  "moreInfo": "Више информација",
 
   "wishlistTitle": "Листа жеља",
   "wishlistDescription": "Помоћу ове апликације моћи ћете да сачувате све своје жеље из скоро свих продавница на свету на једном месту. Поделите листу жеља са пријатељима и породицом, па ће вам се нека од жеља и испунити!",
-  
+
   "cryptoniumTitle": "Криптонијум",
   "cryptoniumDescription": "Имајте увид у тренутне цене на берзи ваших омиљених криптовалута. Израчунајте колика је тренутна вредност ваших деоница, као и колико сте зарадили од тренутка куповине.",
-  
+
   "organizerTitle": "Организатор",
   "organizerDescription": "У неком тренутку нам свима треба апликација која ће нам помоћи да се боље организујемо. Помоћу ове апликације можете записати своје задатке и мерити напредак сваког од њих.",
 
@@ -43,23 +43,5 @@
   "wishlistLinkCopied": "Линк до листе жеља је ископиран",
   "wishRemoved": "Жеља је уклоњена",
   "wishlistOfTheUser": "Листа жеља корисника",
-  "userHasNoWishes": "Корисник тренутно нема ниједну жељу",
-
-  "routingFeature": {
-    "title": "Industry-standard Routing",
-    "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."
-  },
-  "i18nFeature": {
-    "title": "i18n Internationalization & Pluralization",
-    "selectLanguage": "Select Language",
-    "description": "Scalable apps need to support multiple languages, easily add and support multiple languages. Change the language below to see how instantly it updates the page without refreshing."
-  },
-  "feedbackFeature": {
-    "title": "Instant Feedback",
-    "description": "Enjoy the best DX and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page."
-  },
-  "scaffoldingFeature": {
-    "title": "Quick Scaffolding",
-    "description": "Automate the creation of components, features, routes, selectors and sagas - and their tests - right from the CLI! Avoid fighting the glue of your code and focus on your app!"
-  }
+  "userHasNoWishes": "Корисник тренутно нема ниједну жељу"
 }

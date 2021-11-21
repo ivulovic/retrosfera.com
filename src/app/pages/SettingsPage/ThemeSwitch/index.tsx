@@ -1,12 +1,11 @@
-import { FormLabel } from 'app/components/FormLabel';
 import { Radio } from 'app/components/Radio';
 import styled from 'styled-components/macro';
 import { themeActions } from 'styles/theme/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveTheme } from 'styles/theme/utils';
-import { ThemeKeyType } from 'styles/theme/slice/types';
 import { selectThemeKey } from 'styles/theme/slice/selectors';
 import { useTranslation } from 'react-i18next';
+import { ThemeEnum } from 'styles/theme/slice/types';
 
 export function ThemeSwitch() {
   const { t } = useTranslation();
@@ -14,7 +13,7 @@ export function ThemeSwitch() {
   const dispatch = useDispatch();
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value as ThemeKeyType;
+    const value = event.target.value as ThemeEnum;
     saveTheme(value);
     dispatch(themeActions.changeTheme(value));
   };
@@ -57,9 +56,6 @@ export function ThemeSwitch() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${FormLabel} {
-    margin-bottom: 0.625rem;
-  }
 `;
 const Themes = styled.div`
   display: flex;
