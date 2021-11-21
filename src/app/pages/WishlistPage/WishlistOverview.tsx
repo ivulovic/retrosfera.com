@@ -13,6 +13,7 @@ import ShareOutline from 'app/icons/ShareOutline';
 import { makeSelectUserEmail } from 'app/providers/AuthProvider/selectors';
 import { buildMessageFromDev, successNotification } from 'utils/notifications';
 import { useRouteMatch } from 'react-router';
+import { copyToClipboard } from 'utils/copyToClipboard';
 
 export default function WishlistOverview(): JSX.Element {
   const { t } = useTranslation();
@@ -26,11 +27,8 @@ export default function WishlistOverview(): JSX.Element {
   }, []);
   const handleWishlistLinkCopy = () => {
     const sharedWishlistLink = window.origin + `${url}/users/` + userEmail;
-    navigator.clipboard.writeText(sharedWishlistLink).then(
-      function () {
-        successNotification(buildMessageFromDev(t('wishlistLinkCopied')));
-      },
-      function (err) {},
+    copyToClipboard(sharedWishlistLink, () =>
+      successNotification(buildMessageFromDev(t('wishlistLinkCopied'))),
     );
   };
   return (
