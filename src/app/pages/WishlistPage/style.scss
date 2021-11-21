@@ -1,0 +1,45 @@
+.wishes{
+  display: grid;
+  padding-top: 25px;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  .wish{
+    box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.2), 0px 0px 1px 0px rgba(0,0,0,0.14), 0px 0px 3px 0px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    background-color: var(--border-light);
+    .wish-title{
+      display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .wish-media{
+      display: block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 0;
+      padding-top: 80%;
+      background-color: white;
+    }
+    .wish-controls,
+    .wish-title {
+      padding: 0.75rem;
+    }
+    .wish-controls{
+      display: flex;
+      justify-content: space-between;
+      .link{
+        text-decoration: none;
+      }
+    }
+  }
+}
+.wishlist-header-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

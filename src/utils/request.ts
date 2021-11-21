@@ -1,3 +1,47 @@
+/**
+ * @docs FrontEnd // Utils // Request
+ * @desc makeApiUrl - Create full API URL endpoint string for requests
+ *
+ * @param {string} endpoint - A string that needs to be concated with API address
+ * @returns {string} The prepared URL for request
+ */
+export function makeApiUrl(endpoint) {
+  return endpoint;
+}
+
+function makeGenericReq(method, body = null) {
+  return {
+    method,
+    body: body ? JSON.stringify(body) : undefined,
+    credentials: 'include', // same-origin -> for some reason not working
+    //
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+}
+
+export function makePostReq(body) {
+  return makeGenericReq('POST', body);
+}
+
+export function makePatchReq(body) {
+  return makeGenericReq('PATCH', body);
+}
+
+export function makePutReq(body) {
+  return makeGenericReq('PUT', body);
+}
+
+export function makeDeleteReq(body) {
+  return makeGenericReq('DELETE', body);
+}
+
+export function makeGetReq() {
+  return makeGenericReq('GET');
+}
+
 export class ResponseError extends Error {
   public response: Response;
 

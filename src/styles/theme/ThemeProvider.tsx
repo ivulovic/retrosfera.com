@@ -10,12 +10,13 @@ export const ThemeProvider = (props: { children: React.ReactChild }) => {
 
   const theme = useSelector(selectTheme);
   const themeKey = useSelector(selectThemeKey);
-  const preferedTheme = themeKey === 'system' ? isSystemDark ? 'dark' : 'light' : themeKey;
+  const preferedTheme =
+    themeKey === 'system' ? (isSystemDark ? 'dark' : 'light') : themeKey;
+
+  document.documentElement.setAttribute('theme', preferedTheme);
   return (
-    <div className={preferedTheme}>
-      <OriginalThemeProvider theme={theme}>
+      <>
         {React.Children.only(props.children)}
-      </OriginalThemeProvider>
-    </div>
+      </>
   );
 };

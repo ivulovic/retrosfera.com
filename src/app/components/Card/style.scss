@@ -18,11 +18,13 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--border-variant);
+    padding: 0.25rem 0;
     .title{
       margin-top: 0;
     }
-    .subtitle{
-      margin-bottom: 0;
+    .link{
+      color: var(--text-secondary);
+      text-decoration: underline;
     }
   }
 }

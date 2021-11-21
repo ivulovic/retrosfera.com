@@ -14,14 +14,14 @@ export function LanguageSwitch() {
     <Wrapper>
       <Languages>
         <Radio
-            id="sr"
-            label="Српски"
-            className="radio"
-            name="language"
-            onChange={handleLanguageChange}
-            value="sr"
-            isSelected={i18n.language === 'sr'}
-          />
+          id="sr"
+          label="Српски"
+          className="radio"
+          name="language"
+          onChange={handleLanguageChange}
+          value="sr"
+          isSelected={i18n.language === 'sr'}
+        />
         <Radio
           id="en"
           label="English"

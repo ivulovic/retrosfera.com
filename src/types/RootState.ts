@@ -1,4 +1,6 @@
 import { GithubRepoFormState } from 'app/pages/SettingsPage/Features/GithubRepoForm/slice/types';
+import { WISHLIST_SCOPE } from 'app/pages/WishlistPage/constants';
+import { WishlistsState } from 'app/pages/WishlistPage/types';
 import { ThemeState } from 'styles/theme/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
@@ -11,5 +13,6 @@ import { ThemeState } from 'styles/theme/slice/types';
 export interface RootState {
   theme?: ThemeState;
   githubRepoForm?: GithubRepoFormState;
+  [WISHLIST_SCOPE]: WishlistsState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

@@ -1,6 +1,14 @@
 {
   "appName":"Ретросфера",
+  "login": "Sign in",
+  "logout": "Sign out",
+  "register": "Register",
+  "alreadyRegistered": "Already have an account?",
+  "noAccount": "No account yet?",
   "applications":"Applications",
+  "password":"Password",
+  "confirmPassword":"Confirm password",
+  "email":"E-mail",
   "applicationsDescription":"To use our applications you only need to create an account. The applications are completely free to use.",
   "settings":"Settings",
   "settingsDescription":"Settings you change will be saved in your account settings.",
@@ -27,6 +35,15 @@
 
   "notesTitle": "Notes",
   "notesDescription": "App for storing your notes. Write down your thoughts, attach images, videos and keep everything into this rich text editor.",
+
+
+  "wishlistPlaceholder": "Enter valid https address",
+
+  "loginToSeeApplication": "In order to see the application, you need to login first.",
+  "wishlistLinkCopied": "Wishlist link copied",
+  "wishRemoved": "Wish removed",
+  "wishlistOfTheUser": "Wishlist of the",
+  "userHasNoWishes": "This user has no wishes at the moment",
 
   "routingFeature": {
     "title": "Industry-standard Routing",

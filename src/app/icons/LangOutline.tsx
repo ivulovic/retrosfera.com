@@ -15,7 +15,7 @@ function LangOutline(props) {
         stroke="none"
       />
     </svg>
-  )
+  );
 }
 
 export default LangOutline;

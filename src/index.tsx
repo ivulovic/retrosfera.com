@@ -7,14 +7,12 @@
 
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
-
-// Use consistent styling
-import 'sanitize.css/sanitize.css';
 
 import { App } from 'app';
 
@@ -29,6 +27,8 @@ import reportWebVitals from 'reportWebVitals';
 
 // Initialize languages
 import './locales/i18n';
+import AuthProvider from 'app/providers/AuthProvider';
+import NotificationProvider from 'app/providers/NotificationProvider';
 
 // Observe loading of Inter (to remove 'Inter', remove the <link> tag in
 // the index.html file and this observer)
@@ -46,6 +46,8 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
       <HelmetProvider>
+        <AuthProvider />
+        <NotificationProvider />
         <React.StrictMode>
           <App />
         </React.StrictMode>

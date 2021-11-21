@@ -1,0 +1,32 @@
+.button{
+  border: none;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  &.primary{
+    color: white;
+    padding: 0.75rem;
+    background-color: var(--primary);
+  }
+  &.icon{
+    text-decoration: none;
+    background-color: var(--border);
+    border-radius: 4px;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    transition: background-color 0.5s ease;
+    &:hover{
+      background-color: var(--border-dark);
+    }
+    a{
+      height: 32px;
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
