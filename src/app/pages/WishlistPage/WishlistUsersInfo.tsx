@@ -25,7 +25,9 @@ export default function WishlistUserInfo(): JSX.Element {
   return (
     <>
       <Helmet>
-        <title>{t('wishlistTitle')}</title>
+        <title>
+          {t('wishlistTitle')}: {params.userId}
+        </title>
         <meta name="description" content={t('wishlistDescription')} />
       </Helmet>
       <Title>

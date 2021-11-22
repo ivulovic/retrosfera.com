@@ -86,39 +86,38 @@ export function* setupAuthProvider() {
       makeGetReq(),
     );
     yield put(successfulLogin(res));
-  } catch (e) {}
-  const token = getUserAuthToken();
-  if (token) {
-    // update token
-    updateUserAuthToken(token);
+  } catch (e) {
+    const token = getUserAuthToken();
+    if (token) {
+      // update token
+      updateUserAuthToken(token);
 
-    // notify reducer that user is logged in but waiting on user information
-    yield put(hasTokenButWaitingOnUserInformation());
+      // notify reducer that user is logged in but waiting on user information
+      yield put(hasTokenButWaitingOnUserInformation());
 
-    // yield put(startLoader());
-    try {
-      // api call
-      const res = yield call(
-        request,
-        makeApiUrl('/auth/account/info'),
-        makeGetReq(),
-      );
-      // TODO: fetch applications
-      yield put(successfulLogin(res));
-    } catch (e) {
-      console.log({ e });
-      // handle errror
-      if (!e.response.ok) {
-        yield put(logoutUser());
+      // yield put(startLoader());
+      try {
+        // api call
+        const res = yield call(
+          request,
+          makeApiUrl('/auth/account/info'),
+          makeGetReq(),
+        );
+        // TODO: fetch applications
+        yield put(successfulLogin(res));
+      } catch (e) {
+        console.log({ e });
+        // handle errror
+        if (!e.response.ok) {
+          yield put(logoutUser());
+        }
+        // yield handleApiError(e, errorNotification);
       }
-      // yield handleApiError(e, errorNotification);
+      return;
     }
-
-    return;
+    // guest user
+    yield put(guestUser());
   }
-
-  // guest user
-  yield put(guestUser());
 }
 
 /**
