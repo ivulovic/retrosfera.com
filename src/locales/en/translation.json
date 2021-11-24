@@ -42,5 +42,6 @@
   "wishlistLinkCopied": "Wishlist link copied",
   "wishRemoved": "Wish removed",
   "wishlistOfTheUser": "Wishlist of the",
-  "userHasNoWishes": "This user has no wishes at the moment"
+  "userHasNoWishes": "This user has no wishes at the moment",
+  "noWishes": "You don't have any wish at the moment. Create your first wish by pasting product URL to the field above."
 }

@@ -1,5 +1,5 @@
-import { CenteredLoading } from 'app/components/CenteredLoading';
 import Input from 'app/components/Input';
+import LoadingIndicator from 'app/components/LoadingIndicator';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ export default function WishlistForm(): JSX.Element {
 
   const onChange = e => setUrl(e.target.value);
   if (isLoading) {
-    return <CenteredLoading style={{ height: '42px', marginBottom: '25px' }} />;
+    return <LoadingIndicator />;
   }
   return (
     <div className="wishlist-form">

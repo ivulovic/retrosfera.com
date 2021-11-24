@@ -13,13 +13,17 @@ import Subtitle from 'app/components/Subtitle';
 
 export default function WishlistUserInfo(): JSX.Element {
   const { t } = useTranslation();
-  const params = useParams<UserInfoWishlistParams>();
   const dispatch = useDispatch();
 
+  const params = useParams<UserInfoWishlistParams>();
   const isLoading = useSelector(selectLoading);
   const wishlist = useSelector(selectOtherUserWishlist);
+
   useEffect(() => {
     dispatch(actions.loadOtherUserWishlist({ id: params.userId }));
+    return (): void => {
+      dispatch(actions.clearWishlistPageState());
+    };
   }, []);
 
   return (
@@ -38,7 +42,7 @@ export default function WishlistUserInfo(): JSX.Element {
       )}
       <div className="wishes">
         {wishlist.map(wish => (
-          <Wish key={wish.title} showControls={false} {...wish} />
+          <Wish key={wish._id} showControls={false} {...wish} />
         ))}
       </div>
     </>
