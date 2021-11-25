@@ -1,0 +1,27 @@
+.finance-chip-number{
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  padding: 6px 0;
+  -webkit-box-align: center;
+  box-align: center;
+  align-items: center;
+  background-color: var(--background);
+  border-radius: 8px;
+  white-space: nowrap;
+  
+  &.negative{
+    color: var(--negative);
+  }
+  &.positive{
+    color: var(--positive);
+  }
+  &.neutral{
+    color: var(--neutral);
+  }
+  .details{
+    letter-spacing: .025em;
+    font-weight: 400;
+    line-height: 1rem;
+  }
+}

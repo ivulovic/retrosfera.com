@@ -37,7 +37,7 @@ export default function WishlistOverview(): JSX.Element {
       successNotification(buildMessageFromDev(t('wishlistLinkCopied'))),
     );
   };
-
+  const isNoResults = !isLoading && !wishlist.length;
   return (
     <>
       <Helmet>
@@ -51,9 +51,11 @@ export default function WishlistOverview(): JSX.Element {
         </Button>
       </div>
       <WishlistForm />
-      <div className="no-results">
-        {!isLoading && !wishlist.length && <Subtitle>{t('noWishes')}</Subtitle>}
-      </div>
+      {isNoResults && (
+        <div className="no-results">
+          <Subtitle>{t('noWishes')}</Subtitle>
+        </div>
+      )}
       <div className="wishes">
         {wishlist.map(wish => (
           <Wish key={wish.title} {...wish} showControls={true} />

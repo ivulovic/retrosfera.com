@@ -1,0 +1,37 @@
+.ticker {
+  display: flex;
+}
+.ticker-list {
+  display: flex;
+  padding-left: 1rem;
+  animation: ticker 16s infinite linear;
+}
+.ticker:hover .ticker-list {
+  animation-play-state: paused;
+}
+.ticker-list .ticker-item:not(:last-child){
+  margin-right: 1rem;
+}
+.ticker-item {
+  white-space: nowrap;
+}
+@-moz-keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-o-keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,12 @@
+.finance-pair{
+  letter-spacing: .025em;
+  font-size: .75rem;
+  line-height: 1rem;
+  color: var(--text);
+  font-weight: bold;
+  span{
+    color: var(--text-secondary);
+    font-size: .6rem;
+    line-height: 0;
+  } 
+}

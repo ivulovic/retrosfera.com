@@ -1,4 +1,4 @@
-.header{
+#root > .header{
   box-shadow: 0 1px 0 0 var(--border-light);
   height: 4rem;
   display: flex;
@@ -20,7 +20,7 @@
     max-width: 960px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
     box-sizing: border-box;
     
     .logo-wrapper{

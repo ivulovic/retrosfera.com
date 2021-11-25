@@ -21,6 +21,13 @@ body {
   --border: rgba(58,52,51,0.12);
   --border-dark: rgba(58,52,51,0.24);
   --border-light: rgba(58,52,51,0.05);
+
+  --positive: #29b58e;
+  --positive-light:  #29b58e26;
+  --negative: #dd2626;
+  --negative-light: #dd262626;
+  --neutral: rgba(58,52,51,0.7);
+  --neutral-light: #eaf0f0;
 }
 
 :root[theme="dark"] {
@@ -35,6 +42,12 @@ body {
   --border: rgba(241,233,231,0.15);
   --border-dark: rgba(241,233,231,0.30);
   --border-light: rgba(241,233,231,0.15);
+  --positive: #29b58e;
+  --positive-light:  #29b58e3d;
+  --negative: #dd2626;
+  --negative-light: #dd262652;
+  --neutral: rgba(241,233,231,0.6);;
+  --neutral-light: rgba(241,233,231,0.19);
 }
 
 .dark {
@@ -45,8 +58,9 @@ body {
   max-width: 960px;
   width: 100%;
   margin: 5rem auto;
-  padding: 0 1.5rem;
+  padding: 0 0.5rem;
   box-sizing: border-box;
+  // overflow: hidden;
 }
 
 .primary{

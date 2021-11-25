@@ -27,7 +27,7 @@ export default function Wish(props): JSX.Element {
       <div className="wish-title">{wish.title}</div>
       <div
         className="wish-media"
-        style={{ backgroundImage: `url(${wish.image})` }}
+        style={{ backgroundImage: `url("${wish.image}")` }}
       />
       <div className="wish-controls">
         <Button kind="icon">

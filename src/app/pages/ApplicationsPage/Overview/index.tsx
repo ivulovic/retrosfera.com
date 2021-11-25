@@ -4,6 +4,7 @@ import Title from 'app/components/Title';
 import { useTranslation } from 'react-i18next';
 import { useRouteMatch } from 'react-router';
 import wishlistComputer from 'app/images/wishlist-preview.png';
+import img from 'app/images/demoapp.png';
 import { useSelector } from 'react-redux';
 import { makeSelectIsUserAuthenticated } from 'app/providers/AuthProvider/selectors';
 
@@ -21,14 +22,14 @@ export default function ApplicationOverview(): JSX.Element {
       url: `${url}/wishlist`,
       link: t(linkLabel),
     },
-    // {
-    //   id: 'cryptonium',
-    //   title: t('cryptoniumTitle'),
-    //   description: t('cryptoniumDescription'),
-    //   img: img,
-    //   url: `${url}/cryptonium`,
-    //   link: t(linkLabel),
-    // },
+    {
+      id: 'cryptoexchange',
+      title: t('cryptoexchangeTitle'),
+      description: t('cryptoexchangeDescription'),
+      img: img,
+      url: `${url}/cryptoexchange`,
+      link: t(linkLabel),
+    },
     // {
     //   id: 'organizer',
     //   title: t('organizerTitle'),
