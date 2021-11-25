@@ -43,5 +43,24 @@
   "wishRemoved": "Wish removed",
   "wishlistOfTheUser": "Wishlist of the",
   "userHasNoWishes": "This user has no wishes at the moment",
-  "noWishes": "You don't have any wish at the moment. Create your first wish by pasting product URL to the field above."
+  "noWishes": "You don't have any wish at the moment. Create your first wish by pasting product URL to the field above.",
+
+  "overview": "Overview",
+  "cryptocurrencyPair": "Cryptocurrency pair",
+  "shares": "Shares",
+  "currentPrice": "Current price",
+  "totalValue": "Total value",
+  "yourCryptocurrencyData": "Your cryptocurrency shares",
+  "noCryptocurrencyShares": "There's no data yet. You can enter amount of shares in the Detail page of the cryptocurrency pair.",
+  "btc": "Bitcoin",
+  "eth": "Ethereum",
+  "xlm": "Stellar",
+  "xrp": "Ripple",
+  "doge": "Dogecoin",
+  "usd": "United States Dollar",
+  "cryptoCurrencySharesFormLabel": "Do you have shares in",
+  "yes": "Yes, I have",
+  "no": "No, I don't",
+  "shareAmountFormLabel": "What's the amount of shares you own for this cryptocurrency pair?",
+  "sharesListLabel": "List of all cryptocurrency shares you own will be shown in the page"
 }

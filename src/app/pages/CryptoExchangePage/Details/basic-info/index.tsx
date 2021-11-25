@@ -6,6 +6,8 @@ import getUTCTime from 'utils/project/date/getUTCTime';
 import formatPercentage from 'utils/project/number/formatPercentage';
 import formatNumber from 'utils/project/number/formatNumber';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Title from 'app/components/Title';
 
 function SymbolBasicInfo(props: any): JSX.Element {
   const { item } = props;
@@ -14,14 +16,17 @@ function SymbolBasicInfo(props: any): JSX.Element {
     params: { symbol },
   } = useRouteMatch() as any;
   const { source, displayName, type, name, last, change, changePercent } = item;
+  const { t } = useTranslation();
   return (
     <div className="basic-info">
       <div className="header">
         <h4>
-          <Link to={url.slice(0, -(symbol?.length + 1))}>Finance</Link> &middot;{' '}
-          {displayName}
+          <Link to={url.slice(0, -(symbol?.length + 1))}>
+            {t('cryptoexchangeTitle')}
+          </Link>{' '}
+          &middot; {displayName}
         </h4>
-        <h1>{name}</h1>
+        <Title>{name}</Title>
       </div>
       <div className="divider" />
       <div className="data">

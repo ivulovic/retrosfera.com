@@ -1,4 +1,7 @@
+import Subtitle from 'app/components/Subtitle';
 import { memo, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, useRouteMatch } from 'react-router-dom';
 import formatNumber from 'utils/project/number/formatNumber';
 
 function getInitialState(item: any) {
@@ -10,6 +13,8 @@ function getInitialState(item: any) {
 
 function SharesCalculator(props: any) {
   const { item } = props;
+  const { t } = useTranslation();
+  const { url } = useRouteMatch();
   const [state, setState] = useState(() => getInitialState(item));
 
   useEffect(() => {
@@ -40,10 +45,12 @@ function SharesCalculator(props: any) {
 
   return (
     <div className="shares">
-      <h3>Shares</h3>
+      {/* <h3>{t('shares')}</h3> */}
 
       <div className="form">
-        <h5>Do you have shares in {item.displayName}?</h5>
+        <Subtitle type="primary">
+          {t('cryptoCurrencySharesFormLabel')} {item.name}?
+        </Subtitle>
         <div>
           <input
             onChange={handleChange}
@@ -53,7 +60,7 @@ function SharesCalculator(props: any) {
             value="1"
             checked={state.hasShare === '1'}
           />
-          <label htmlFor="sharesExistOption1">Yes</label>
+          <label htmlFor="sharesExistOption1">{t('yes')}</label>
         </div>
         <div>
           <input
@@ -64,13 +71,14 @@ function SharesCalculator(props: any) {
             value="0"
             checked={state.hasShare === '0'}
           />
-          <label htmlFor="sharesExistOption2">No</label>
+          <label htmlFor="sharesExistOption2">{t('no')}</label>
         </div>
       </div>
 
       {sharesExist ? (
         <div>
-          <h5>Number of {item.displayName} you own:</h5>
+          <br />
+          <Subtitle type="primary">{t('shareAmountFormLabel')}</Subtitle>
           <div className="shares-number-row">
             <input
               type="text"
@@ -87,6 +95,13 @@ function SharesCalculator(props: any) {
               {formatNumber(Number(state.shares || 0) * item.last, false, 2)}
             </span>
           </div>
+          <br />
+          <Subtitle>
+            {t('sharesListLabel')}{' '}
+            <Link to={url.slice(0, -(item.symbol?.length + 1))}>
+              {t('overview')}.
+            </Link>{' '}
+          </Subtitle>
         </div>
       ) : null}
     </div>

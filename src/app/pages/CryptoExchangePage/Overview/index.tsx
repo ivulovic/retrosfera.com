@@ -1,5 +1,8 @@
 import LoadingIndicator from 'app/components/LoadingIndicator';
+import Subtitle from 'app/components/Subtitle';
+import Title from 'app/components/Title';
 import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useRouteMatch } from 'react-router-dom';
 import formatNumber from 'utils/project/number/formatNumber';
 import RealTimeDataProviderContext from '../RealTimeDataProvider/context';
@@ -9,6 +12,7 @@ export default function OverviewPage() {
   const ctx = useContext(RealTimeDataProviderContext);
   const symbols = ctx?.symbols || [];
   const data = ctx?.data || [];
+  const { t } = useTranslation();
 
   const getSymbolsWithShares = (): Array<string> => {
     let result: Array<string> = [];
@@ -27,7 +31,6 @@ export default function OverviewPage() {
   const rows = data.filter((x: any) => sharesList.includes(x.symbol));
 
   const isLoading = !data || (data && !data.length);
-
   if (isLoading) {
     return <LoadingIndicator />;
   }
@@ -37,19 +40,19 @@ export default function OverviewPage() {
       <div className="page-info">
         <div className="header">
           <h4>
-            <Link to={url}>Finance</Link>
+            <Link to={url}>{t('cryptoexchangeTitle')}</Link>
           </h4>
-          <h1>Overview</h1>
+          <Title>{t('overview')}</Title>
         </div>
-        <div className="divider" />
         <div className="data">
+          <Subtitle type="primary">{t('yourCryptocurrencyData')}</Subtitle>
           {rows.length ? (
             <table className="table" cellPadding="16px">
               <thead>
-                <th align="left">Symbol</th>
-                <th align="right">Shares</th>
-                <th align="right">Price</th>
-                <th align="right">Total</th>
+                <th align="left">{t('cryptocurrencyPair')}</th>
+                <th align="right">{t('shares')}</th>
+                <th align="right">{t('currentPrice')}</th>
+                <th align="right">{t('totalValue')}</th>
               </thead>
               <tbody>
                 {rows.map((x: any) => {
@@ -61,7 +64,7 @@ export default function OverviewPage() {
                         <Link to={`${url}/${x.symbol}`}>{x.displayName}</Link>
                       </td>
                       <td align="right">
-                        {formatNumber(Number(share), false, 2)}
+                        {formatNumber(Number(share), false)}
                       </td>
                       <td align="right">{formatNumber(x.last, false, 2)}</td>
                       <td align="right">
@@ -73,7 +76,7 @@ export default function OverviewPage() {
               </tbody>
             </table>
           ) : (
-            <h5>No data</h5>
+            <Subtitle>{t('noCryptocurrencyShares')}</Subtitle>
           )}
         </div>
       </div>

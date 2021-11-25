@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { asyncScheduler, buffer, filter, throttleTime } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
 import getSymbolDisplayName from 'utils/project/cryptoexchange/getSymbolDisplayName';
@@ -30,6 +31,7 @@ function getTimestamp() {
 
 export default function useSymbolSubscription(symbolsList: Array<string>) {
   const state = useRef({});
+  const { t } = useTranslation();
   const [d, setD] = useState(getTimestamp());
 
   const rerender = () => setD(getTimestamp());
@@ -80,7 +82,7 @@ export default function useSymbolSubscription(symbolsList: Array<string>) {
             ...newState[chanId],
             displayName,
             source: 'Bitfinex',
-            name: getSymbolName(displayName),
+            name: getSymbolName(displayName, t),
             type: getSymbolType(displayName),
             last: values[TickerSnapshot.LAST_PRICE],
             change: values[TickerSnapshot.DAILY_CHANGE],
