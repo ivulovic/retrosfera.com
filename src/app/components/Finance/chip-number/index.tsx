@@ -10,7 +10,7 @@ function FinanceChipNumber(props: any) {
     <div className={`finance-chip-number ${changeClassName}`}>
       <div className="details">
         <div>
-          <span className={changeClassName}>{formatter(value, true, 2)}</span>
+          <span className={changeClassName}>{formatter(value, true, 8)}</span>
         </div>
       </div>
     </div>

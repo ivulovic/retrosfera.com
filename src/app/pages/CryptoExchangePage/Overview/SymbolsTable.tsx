@@ -21,8 +21,8 @@ export default function SymbolsTable({ rows }) {
               <td align="left">
                 <Link to={`${url}/${x.symbol}`}>{x.displayName}</Link>
               </td>
-              <td align="right">{formatNumber(Number(x.last), false, 4)}</td>
-              <td align="right">{formatNumber(x.change, false, 4)}</td>
+              <td align="right">{formatNumber(Number(x.last), false, 8)}</td>
+              <td align="right">{formatNumber(x.change, false, 8)}</td>
               <td align="right">{formatPercentage(x.changePercent)}</td>
             </tr>
           );

@@ -4,4 +4,5 @@ export const symbolsList = [
   'tXLMUSD',
   'tXRPUSD',
   'tDOGE:USD',
+  'tSHIB:USD',
 ];

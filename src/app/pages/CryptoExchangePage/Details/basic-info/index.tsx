@@ -31,7 +31,7 @@ function SymbolBasicInfo(props: any): JSX.Element {
       <div className="divider" />
       <div className="data">
         <div>
-          <h1>{formatNumber(last, false, 2)}</h1>
+          <h1>{formatNumber(last, false, 8)}</h1>
           <FinanceChipPercent
             colorValue={change}
             value={changePercent}

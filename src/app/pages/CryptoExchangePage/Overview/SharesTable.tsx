@@ -22,8 +22,8 @@ export default function SharesTable({ rows }) {
                 <Link to={`${url}/${x.symbol}`}>{x.displayName}</Link>
               </td>
               <td align="right">{formatNumber(Number(share), false)}</td>
-              <td align="right">{formatNumber(x.last, false, 4)}</td>
-              <td align="right">{formatNumber(x.last * share, false, 4)}</td>
+              <td align="right">{formatNumber(x.last, false, 8)}</td>
+              <td align="right">{formatNumber(x.last * share, false, 8)}</td>
             </tr>
           );
         })}
