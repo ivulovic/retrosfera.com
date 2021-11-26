@@ -50,6 +50,7 @@
   "shares": "Shares",
   "currentPrice": "Current price",
   "totalValue": "Total value",
+  "cryptocurrencyData": "Cryptocurrency pairs",
   "yourCryptocurrencyData": "Your cryptocurrency shares",
   "noCryptocurrencyShares": "There's no data yet. You can enter amount of shares in the Detail page of the cryptocurrency pair.",
   "btc": "Bitcoin",
@@ -62,5 +63,7 @@
   "yes": "Yes, I have",
   "no": "No, I don't",
   "shareAmountFormLabel": "What's the amount of shares you own for this cryptocurrency pair?",
-  "sharesListLabel": "List of all cryptocurrency shares you own will be shown in the page"
+  "sharesListLabel": "List of all cryptocurrency shares you own will be shown in the page",
+  "change": "Change",
+  "changePercent": "Change percent"
 }

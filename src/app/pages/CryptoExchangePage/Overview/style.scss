@@ -50,23 +50,35 @@
     width: 100%;
     overflow: auto;
     border-collapse: collapse;
+    thead th,
+    tbody td{
+      max-width: 25%;
+      font-size: 0.70rem;
+      padding: 0.5rem 0rem;
+    }
     thead th{
-      padding: 0.5rem 0.25rem;
-      font-size: 0.75rem;
       border-bottom: 1px solid var(--border-light);
     }
 
     tbody{
       td{
-        font-size: 0.75rem;
         white-space: nowrap;
-        padding: 0.5rem 0.25rem;
+        // &.negative{
+        //   color: var(--negative);
+        // }
+        // &.positive{
+        //   color: var(--positive);
+        // }
+        // &.neutral{
+        //   color: var(--neutral);
+        // }
       }
       td:first-child{
         font-weight: bold;
         a{
           text-decoration: none;
-          color: var(--primary);
+          font-weight: 600;
+          color: var(--text);
         }
       }
       tr:nth-child(even){
