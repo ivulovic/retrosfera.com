@@ -18,7 +18,7 @@ export default function RealTimeDataProvider(
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [symbolsList]);
 
   return (
     <RealTimeDataProviderContext.Provider

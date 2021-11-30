@@ -21,8 +21,6 @@ export default function Ticker({
     <div className="ticker">
       {renderItems()}
       {renderItems()}
-      {renderItems()}
-      {renderItems()}
     </div>
   );
 }

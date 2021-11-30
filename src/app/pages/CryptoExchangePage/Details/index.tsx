@@ -1,8 +1,6 @@
 import LoadingIndicator from 'app/components/LoadingIndicator';
 import { useContext } from 'react';
 import { withRouter } from 'react-router';
-import { symbolsList } from '../data';
-import RealTimeDataProvider from '../RealTimeDataProvider';
 import RealTimeDataProviderContext from '../RealTimeDataProvider/context';
 
 import SymbolBasicInfo from './basic-info';

@@ -5,11 +5,15 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useRouteMatch } from 'react-router-dom';
 import RealTimeDataProviderContext from '../RealTimeDataProvider/context';
-import './style.scss';
 import SharesTable from './SharesTable';
 import SymbolsTable from './SymbolsTable';
+import './style.scss';
+import SettingsOutline from 'app/icons/SettingsOutline';
+import { useSelector } from 'react-redux';
+import { selectLoading } from '../selectors';
 
 export default function OverviewPage() {
+  const isLoading = useSelector(selectLoading);
   const ctx = useContext(RealTimeDataProviderContext);
   const symbols = ctx?.symbols || [];
   const data = ctx?.data || [];
@@ -31,7 +35,6 @@ export default function OverviewPage() {
 
   const rows = data.filter((x: any) => sharesList.includes(x.symbol));
 
-  const isLoading = !data || (data && !data.length);
   if (isLoading) {
     return <LoadingIndicator />;
   }
@@ -46,11 +49,19 @@ export default function OverviewPage() {
           <Title>{t('overview')}</Title>
         </div>
         <div className="data">
-          <Subtitle type="primary">{t('cryptocurrencyData')}</Subtitle>
+          <div className="space-between">
+            <Subtitle type="primary">{t('cryptocurrencyData')}</Subtitle>
+            <Link to={`${url}/configuration`}>
+              <SettingsOutline />
+            </Link>
+          </div>
           {data.length ? (
             <SymbolsTable rows={data} />
           ) : (
-            <Subtitle>{t('noData')}</Subtitle>
+            <Subtitle>
+              {t('selectCryptocurrencies')}{' '}
+              <Link to={`${url}/configuration`}>{t('configuration')}.</Link>{' '}
+            </Subtitle>
           )}
         </div>
         <div className="data">

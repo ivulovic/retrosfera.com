@@ -1,0 +1,44 @@
+.cryptoexchange-configuration{
+  color: var(--text);
+  margin-top: 1rem;
+  .page-info{
+    .header{
+      h4, h1{
+        font-weight: 500;
+      }
+      h4{
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        a{
+          color: var(--text-secondary);
+          text-decoration: none;
+        }
+      }
+      h1{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        color: var(--text);
+      }
+    }
+    .divider{
+      margin: 1rem 0 0rem 0;
+      height: 1px;
+      border-bottom: 1px solid var(--border-light);
+    }
+  }
+  .configuration-row{
+    display: flex;
+    grid-template-columns: fr;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 10px;
+    label{
+      cursor: pointer;
+      color: var(--text);
+    }
+    input:checked + label{
+      color: var(--primary);
+    }
+  }
+}

@@ -117,13 +117,13 @@ export default function useSymbolSubscription(symbolsList: Array<string>) {
 
   const subscribe = useCallback<any>(() => {
     symbolsList.forEach(makeSubscription);
-  }, []);
+  }, [symbolsList]);
 
   const unsubscribe = useCallback<any>(() => {
     const chanIds = Object.keys(state.current);
     chanIds.forEach(chanId => subject.next({ event: 'unsubscribe', chanId }));
     state.current = {};
-  }, []);
+  }, [symbolsList]);
 
   return [Object.values(state.current), subscribe, unsubscribe];
 }
