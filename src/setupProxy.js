@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use(
     '/bitfinex',
     createProxyMiddleware({
-      target: 'https://api.bitfinex.com/v2',
+      target: 'https://api-pub.bitfinex.com/v2',
       changeOrigin: true,
       pathRewrite: {
         '^/bitfinex': '/',

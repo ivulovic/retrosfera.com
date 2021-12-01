@@ -27,11 +27,19 @@
       display: flex;
       align-items: center;
       .logo-title{
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: var(--text);
         font-weight: bold;
         margin-right: 1rem;
         text-decoration: none;
+        align-items: center;
+        display: flex;
+        svg{
+          margin-right: 0.5rem;
+          background: #fff;
+          border-radius: 50%;
+          padding: 2px;
+        }
       }
       .logo-description{
         font-size: 0.875rem;
@@ -43,11 +51,11 @@
       display: flex;
       margin-right: -1rem;
       .nav-item{
-        color: var(--text-secondary);
+        color: var(--text);
         cursor: pointer;
         text-decoration: none;
         display: flex;
-        padding: 0.25rem 1rem;
+        padding: 0.25rem 0.25rem;
         font-size: 0.875rem;
         font-weight: 600;
         align-items: center;
@@ -64,6 +72,28 @@
           margin-right: 0.25rem;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .header-wrapper{
+      flex-direction: column;
+      padding: 0.5rem 0;
+    }
+    .nav-wrapper{
+      margin-right: 0;
+    }
+    .logo-wrapper{
+      .logo-title{
+        font-size: 1.25rem;
+      }
+      svg{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .nav-item{
+      padding: 0.35rem 0.25rem;
     }
   }
   

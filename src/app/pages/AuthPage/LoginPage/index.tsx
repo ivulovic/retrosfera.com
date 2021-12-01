@@ -5,16 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import { login } from 'app/providers/AuthProvider/actions';
 import { useTranslation } from 'react-i18next';
 import '../style.scss';
-// import { translations } from 'locales/i18n';
-// import {
-//   websiteName,
-//   websiteMetaTitleLoginPage,
-//   websiteMetaDescriptionLoginPage,
-// } from 'settings';
-
 import Input from 'app/components/Input';
 import { Link } from 'react-router-dom';
 import Button from 'app/components/Button';
+import Title from 'app/components/Title';
 
 export function LoginPage() {
   const { t } = useTranslation();
@@ -42,6 +36,9 @@ export function LoginPage() {
         <meta name="description" content={websiteMetaDescriptionLoginPage} />
       </Helmet> */}
       <div className="page-wrapper auth-page">
+        <div className="auth-title">
+          <Title>{t('login')}</Title>
+        </div>
         <div className="auth-form">
           <Input
             id="login-email"

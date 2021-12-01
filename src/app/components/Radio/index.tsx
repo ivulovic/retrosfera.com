@@ -35,8 +35,7 @@ const Wrapper = styled.div`
     + label {
       margin: 0;
       display: inline-block;
-      padding-left: 1.375rem;
-      padding-top: 0.0625rem;
+      padding-left: 1.75rem;
       position: relative;
       cursor: pointer;
       font-size: 0.875rem;
@@ -103,7 +102,12 @@ const Wrapper = styled.div`
         }
 
         &::after {
+          background: white;
           display: inline-block;
+          top: 10px;
+          left: 6px;
+          width: 8px;
+          height: 8px;
         }
       }
     }

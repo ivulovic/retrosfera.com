@@ -3,6 +3,10 @@
   justify-content: center;
   flex-direction: column;
   height: 88vh;
+  .auth-title{
+    text-align: center;
+    padding: 2rem 0;
+  }
   .auth-form{
     display: grid;
     grid-template-columns: 1fr;

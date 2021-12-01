@@ -1,3 +1,4 @@
+import Logo from 'app/icons/Logo';
 import { makeSelectIsUserAuthenticated } from 'app/providers/AuthProvider/selectors';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,6 +13,7 @@ export default function Header(): JSX.Element {
       <div className="header-wrapper">
         <div className="logo-wrapper">
           <Link to="/" className="logo-title">
+            <Logo width={24} height={24} />
             {t('appName')}
           </Link>
           {/* <div className="logo-description"></div> */}

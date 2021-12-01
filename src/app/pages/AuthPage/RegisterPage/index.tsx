@@ -9,6 +9,7 @@ import Input from 'app/components/Input';
 import { Link } from 'react-router-dom';
 import '../style.scss';
 import Button from 'app/components/Button';
+import Title from 'app/components/Title';
 
 export function RegisterPage() {
   const dispatch = useDispatch();
@@ -60,6 +61,9 @@ export function RegisterPage() {
         <meta name="description" content={websiteMetaDescriptionRegisterPage} />
       </Helmet>  */}
       <div className="page-wrapper auth-page">
+        <div className="auth-title">
+          <Title>{t('register')}</Title>
+        </div>
         <div className="auth-form">
           <Input
             id="register-email"

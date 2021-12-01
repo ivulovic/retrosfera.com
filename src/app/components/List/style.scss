@@ -1,13 +1,13 @@
 .list{
-  padding: 0;
-  margin: 6.25rem 0 0 0;
+  $width: 4.25rem;
+  $gap: 1.5rem;
   .list-item{
     display: flex;
-    margin: 6.25rem 0 6.25rem 0rem;
+    margin:  $gap 0  $gap 0rem;
     .list-item-icon {
-      width: 6.25rem;
-      height: 6.25rem;
-      margin-right: 2.25rem;
+      width: $width;
+      height: $width;
+      margin-right: $gap;
       flex-shrink: 0;
     }
     .list-item-content{

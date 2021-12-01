@@ -38,7 +38,7 @@ export function App() {
         defaultTitle="Ретросфера"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="Ретросфера" />
       </Helmet>
       <Header />
 
