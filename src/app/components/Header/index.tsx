@@ -1,44 +1,57 @@
+import useOnClickOutside from 'app/hooks/useOnClickOutside';
 import Logo from 'app/icons/Logo';
-import { makeSelectIsUserAuthenticated } from 'app/providers/AuthProvider/selectors';
+import MenuOutline from 'app/icons/MenuOutline';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useLocation, useRouteMatch } from 'react-router-dom';
+import NavLinks from './NavLinks';
 import './style.scss';
 
 export default function Header(): JSX.Element {
   const { t } = useTranslation();
-  const isUserLoggedIn = useSelector(makeSelectIsUserAuthenticated);
+  const location = useLocation();
+  const navbarRef = useRef() as any;
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  useEffect(() => {
+    console.log(location);
+    setIsNavbarOpen(false);
+  }, [location]);
+
+  useOnClickOutside(navbarRef, () => setIsNavbarOpen(false));
+  const LogoWrapper = () => (
+    <div className="logo-wrapper">
+      <Link to="/" className="logo-title">
+        <Logo width={24} height={24} />
+        {t('appName')}
+      </Link>
+    </div>
+  );
+  const HamburgerMenu = () => (
+    <div
+      onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+      className="nav-icon mobile"
+    >
+      <MenuOutline width={24} height={24} />
+    </div>
+  );
   return (
     <div className="header">
       <div className="header-wrapper">
-        <div className="logo-wrapper">
-          <Link to="/" className="logo-title">
-            <Logo width={24} height={24} />
-            {t('appName')}
-          </Link>
-          {/* <div className="logo-description"></div> */}
-        </div>
+        <LogoWrapper />
         <div className="nav-wrapper">
-          <NavLink
-            activeClassName="active"
-            to="/applications"
-            className="nav-item"
-          >
-            {t('applications')}
-          </NavLink>
-          <NavLink activeClassName="active" to="/settings" className="nav-item">
-            {t('settings')}
-          </NavLink>
-          {isUserLoggedIn && (
-            <NavLink activeClassName="active" to="/logout" className="nav-item">
-              {t('logout')}
-            </NavLink>
-          )}
-          {!isUserLoggedIn && (
-            <NavLink activeClassName="active" to="/login" className="nav-item">
-              {t('login')}
-            </NavLink>
-          )}
+          <NavLinks />
+        </div>
+        <HamburgerMenu />
+        <div
+          className={`nav-wrapper mobile ${isNavbarOpen ? 'opened' : 'closed'}`}
+          ref={navbarRef}
+        >
+          <div className="nav-header">
+            <HamburgerMenu />
+            {t('navigation')}
+          </div>
+          <NavLinks />
         </div>
       </div>
     </div>

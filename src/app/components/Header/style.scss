@@ -55,7 +55,7 @@
         cursor: pointer;
         text-decoration: none;
         display: flex;
-        padding: 0.25rem 0.25rem;
+        padding: 0.25rem 0.5rem;
         font-size: 0.875rem;
         font-weight: 600;
         align-items: center;
@@ -74,12 +74,16 @@
       }
     }
   }
-
-  @media screen and (max-width: 640px) {
-    .header-wrapper{
-      flex-direction: column;
-      padding: 0.5rem 0;
+  @media screen and (min-width: 640px) {
+    .nav-wrapper:not(.mobile) {
+      display: flex;
     }
+    .nav-wrapper.mobile, 
+    .nav-icon {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 640px) {
     .nav-wrapper{
       margin-right: 0;
     }
@@ -94,6 +98,63 @@
     }
     .nav-item{
       padding: 0.35rem 0.25rem;
+    }
+    .nav-wrapper:not(.mobile) {
+      display: none;
+    }
+    .nav-icon.mobile {
+      display: block;
+      position: fixed;
+      right: 0;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .nav-wrapper.mobile {
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      right: 0;
+      top: 0;
+      padding: 0;
+      height: 100vh;
+      border-left: 1px solid var(--border-light);
+      background: var(--background-variant);
+      width:75%;
+      &.closed{
+        transform: translate(100%, 0px);
+      }
+      &.opened{
+        transform: translate(0px, 0px);
+      }
+      .nav-header {
+        height: 4rem;
+        padding: 0rem 0.8rem;
+        border-bottom: 1px solid var(--border-light);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 18px;
+        background-color: var(--background-backdrop);
+        align-items: center;
+        display: flex;
+        .nav-icon{
+          padding: 0;
+          position: static;
+          align-items: center;
+          display: flex;
+        }
+      }
+      .nav-item{
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        &.active{
+          background-color: var(--primary);
+          color: white;
+        }
+      }
     }
   }
   
