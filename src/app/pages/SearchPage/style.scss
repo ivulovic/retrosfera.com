@@ -1,0 +1,23 @@
+.search-page{
+  .main{
+    color: var(--text);
+  }
+  .result-row{
+    color: var(--text);
+    a{
+      text-decoration: none;
+      display: inline-block;
+    }
+    .subtitle{
+      margin-bottom: 0;
+      color: var(--primary);
+      border-bottom: 1px solid transparent;
+      &:hover {
+        border-bottom: 1px solid var(--primary-light);
+      }
+    }
+    .paragraph{
+      margin-top: 0.25rem;
+    }
+  }
+}

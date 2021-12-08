@@ -38,7 +38,7 @@ const Wrapper = styled.div`
       padding-left: 1.75rem;
       position: relative;
       cursor: pointer;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       color: var(--text);
       z-index: 1;
 
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
       &::before {
         position: absolute;
-        top: 0.25rem;
+        top: 0;
         left: 0;
         display: inline-block;
         width: 1rem;
@@ -104,7 +104,7 @@ const Wrapper = styled.div`
         &::after {
           background: white;
           display: inline-block;
-          top: 10px;
+          top: 6px;
           left: 6px;
           width: 8px;
           height: 8px;

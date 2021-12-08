@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import FontFaceObserver from 'fontfaceobserver';
+// import FontFaceObserver from 'fontfaceobserver';
 
 import { App } from 'app';
 
@@ -32,12 +32,12 @@ import NotificationProvider from 'app/providers/NotificationProvider';
 
 // Observe loading of Inter (to remove 'Inter', remove the <link> tag in
 // the index.html file and this observer)
-const fontObserver = new FontFaceObserver('Play', {});
+// const fontObserver = new FontFaceObserver('Play', {});
 
 // When Inter is loaded, add a font-family using Inter to the body
-fontObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-});
+// fontObserver.load().then(() => {
+//   document.body.classList.add('fontLoaded');
+// });
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;

@@ -1,4 +1,4 @@
-#root > .header{
+header.header{
   box-shadow: 0 1px 0 0 var(--border-light);
   height: 4rem;
   display: flex;
@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 960px;
-    width: 100%;
+    width: calc(100% - 0.5rem);
     margin: 0 auto;
     padding: 0 0.5rem;
     box-sizing: border-box;
@@ -27,16 +27,16 @@
       display: flex;
       align-items: center;
       .logo-title{
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        text-transform: uppercase;
         color: var(--text);
-        font-weight: bold;
+        // font-weight: bold;
         margin-right: 1rem;
         text-decoration: none;
         align-items: center;
         display: flex;
         svg{
           margin-right: 0.5rem;
-          background: #fff;
           border-radius: 50%;
           padding: 2px;
         }
@@ -51,19 +51,21 @@
       display: flex;
       margin-right: -1rem;
       .nav-item{
+        text-transform: uppercase;
         color: var(--text);
         cursor: pointer;
         text-decoration: none;
         display: flex;
         padding: 0.25rem 0.5rem;
-        font-size: 0.875rem;
-        font-weight: 600;
+        letter-spacing: 0.8px;
+        font-size: 0.75rem;
+        // font-weight: 600;
         align-items: center;
         &.active{
           color: var(--primary);
         }
         &:hover {
-          opacity: 0.8;
+          opacity: 0.9;
         }
         &:active {
           opacity: 0.4;
@@ -86,15 +88,7 @@
   @media screen and (max-width: 640px) {
     .nav-wrapper{
       margin-right: 0;
-    }
-    .logo-wrapper{
-      .logo-title{
-        font-size: 1.25rem;
-      }
-      svg{
-        width: 20px;
-        height: 20px;
-      }
+      z-index: 1;
     }
     .nav-item{
       padding: 0.35rem 0.25rem;
@@ -103,11 +97,14 @@
       display: none;
     }
     .nav-icon.mobile {
-      display: block;
+      display: flex;
       position: fixed;
       right: 0;
-      padding: 5px 10px;
       cursor: pointer;
+      right: 0;
+      padding: 0px 10px;
+      height: 100%;
+      align-items: center;
     }
     .nav-wrapper.mobile {
       transition: all 0.3s ease;
@@ -129,14 +126,14 @@
       }
       .nav-header {
         height: 4rem;
+        text-transform: uppercase;
         padding: 0rem 0.8rem;
         border-bottom: 1px solid var(--border-light);
         color: var(--text);
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-weight: 600;
-        font-size: 18px;
+        font-size: 1.1rem;
         background-color: var(--background-backdrop);
         align-items: center;
         display: flex;

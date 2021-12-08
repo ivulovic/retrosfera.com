@@ -1,0 +1,27 @@
+.home-page{
+  .page-logo-wrapper{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .logo-title{
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+  }
+  .main-search{
+    margin: 3rem 0;
+  }
+  .quick-access{
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    // grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+    // grid-template-columns: repeat(auto-fit, minmax(380px, max-content));
+    grid-gap: 1rem;
+  }
+}

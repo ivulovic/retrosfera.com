@@ -8,9 +8,34 @@ export default function NavLinks() {
   const isUserLoggedIn = useSelector(makeSelectIsUserAuthenticated);
   return (
     <>
-      <NavLink activeClassName="active" to="/applications" className="nav-item">
-        {t('applications')}
-      </NavLink>
+      {isUserLoggedIn ? (
+        <>
+          <NavLink
+            activeClassName="active"
+            to="/applications/wishlist"
+            className="nav-item"
+          >
+            {t('wishlistTitle')}
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            to="/applications/cryptoexchange"
+            className="nav-item"
+          >
+            {t('cryptoexchangeTitle')}
+          </NavLink>
+        </>
+      ) : (
+        <>
+          <NavLink
+            activeClassName="active"
+            to="/applications"
+            className="nav-item"
+          >
+            {t('applications')}
+          </NavLink>
+        </>
+      )}
       <NavLink activeClassName="active" to="/settings" className="nav-item">
         {t('settings')}
       </NavLink>

@@ -71,5 +71,7 @@
   "configuration": "Configuration",
   "selectCryptocurrencies": "You did not select any cryptocurrency. You can select them on the page",
   "chooseTickerSymbols": "Choose cryptocurrencies you want to follow. Shares calculator will show only currency pairs you selected. Maximum number of cryptocurrencies you can select is",
-  "navigation": "Navigation"
+  "navigation": "Navigation",
+
+  "searchResultsForTerm": "Search results for term"
 }

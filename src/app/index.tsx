@@ -1,31 +1,25 @@
-/**
- *
- * App
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- */
-
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import { NotFoundPage } from './pages/NotFoundPage/Loadable';
-import { useTranslation } from 'react-i18next';
-import Header from './components/Header';
-import SettingsPage from './pages/SettingsPage';
-import ApplicationsPage from './pages/ApplicationsPage';
-import { RegisterPage } from './pages/AuthPage/RegisterPage';
-import { LoginPage } from './pages/AuthPage/LoginPage';
-import LogoutPage from './pages/AuthPage/LogoutPage';
+import { NotFoundPage } from 'app/pages/NotFoundPage/Loadable';
+import SettingsPage from 'app/pages/SettingsPage';
+import ApplicationsPage from 'app/pages/ApplicationsPage';
+import { RegisterPage } from 'app/pages/AuthPage/RegisterPage';
+import { LoginPage } from 'app/pages/AuthPage/LoginPage';
+import LogoutPage from 'app/pages/AuthPage/LogoutPage';
 import { useSelector } from 'react-redux';
 import {
   makeSelectInitializedAuth,
   makeSelectIsUserAuthenticated,
-} from './providers/AuthProvider/selectors';
+} from 'app/providers/AuthProvider/selectors';
 import PublicRoute from 'app/components/Routes/PublicRoute';
-import HomePage from './pages/HomePage';
-import PrivateRoute from './components/Routes/PrivateRoute';
-import OnlyPublicRoute from './components/Routes/OnlyPublicRoute';
+import HomePage from 'app/pages/HomePage';
+import PrivateRoute from 'app/components/Routes/PrivateRoute';
+import OnlyPublicRoute from 'app/components/Routes/OnlyPublicRoute';
+import SearchPage from 'app/pages/SearchPage';
+import BasicLayout from 'app/layouts/BasicLayout';
+import DefaultLayout from 'app/layouts/DefaultLayout';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -40,41 +34,50 @@ export function App() {
       >
         <meta name="description" content="Ретросфера" />
       </Helmet>
-      <Header />
-
       <Switch>
         <PublicRoute
           exact={true}
-          path={process.env.PUBLIC_URL + '/'}
+          layout={BasicLayout}
           component={HomePage}
+          path={process.env.PUBLIC_URL + '/'}
         />
         <PublicRoute
-          path={process.env.PUBLIC_URL + '/applications'}
+          layout={DefaultLayout}
+          component={SearchPage}
+          path={process.env.PUBLIC_URL + '/search'}
+        />
+        <PublicRoute
+          layout={DefaultLayout}
           component={ApplicationsPage}
+          path={process.env.PUBLIC_URL + '/applications'}
         />
         <PublicRoute
+          layout={DefaultLayout}
           path={process.env.PUBLIC_URL + '/settings'}
           component={SettingsPage}
         />
         <OnlyPublicRoute
+          layout={DefaultLayout}
           isAuthenticated={isUserLoggedIn}
           isAuthReady={isAuthInitialized}
           path={process.env.PUBLIC_URL + '/login'}
           component={LoginPage}
         />
-        <OnlyPublicRoute
+        {/* <OnlyPublicRoute
+          layout={BasicLayout}
           isAuthenticated={isUserLoggedIn}
           isAuthReady={isAuthInitialized}
           path={process.env.PUBLIC_URL + '/register'}
           component={RegisterPage}
-        />
+        /> */}
         <PrivateRoute
+          layout={BasicLayout}
           isAuthenticated={isUserLoggedIn}
           isAuthReady={isAuthInitialized}
           path={process.env.PUBLIC_URL + '/logout'}
           component={LogoutPage}
         />
-        <Route component={NotFoundPage} />
+        <PublicRoute layout={DefaultLayout} component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
   );

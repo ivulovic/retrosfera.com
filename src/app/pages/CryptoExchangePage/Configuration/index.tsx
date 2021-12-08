@@ -14,7 +14,7 @@ import { actions } from '../slice';
 
 export default function ConfigurationPage() {
   const { t } = useTranslation();
-  const { url } = useRouteMatch();
+  const { path } = useRouteMatch();
   const dispatch = useDispatch();
   const [state, setState] = useState<Array<ConfigurationSymbolItem>>([]);
   const isLoading = useSelector(selectLoading);
@@ -72,7 +72,7 @@ export default function ConfigurationPage() {
       <div className="page-info">
         <div className="header">
           <h4>
-            <Link to={url}>{t('cryptoexchangeTitle')}</Link>
+            <Link to={path}>{t('cryptoexchangeTitle')}</Link>
           </h4>
           <Title>{t('configuration')}</Title>
         </div>

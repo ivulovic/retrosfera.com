@@ -22,7 +22,7 @@ export default function Header(): JSX.Element {
   const LogoWrapper = () => (
     <div className="logo-wrapper">
       <Link to="/" className="logo-title">
-        <Logo width={24} height={24} />
+        <Logo width={32} height={32} />
         {t('appName')}
       </Link>
     </div>
@@ -36,7 +36,7 @@ export default function Header(): JSX.Element {
     </div>
   );
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-wrapper">
         <LogoWrapper />
         <div className="nav-wrapper">
@@ -54,6 +54,6 @@ export default function Header(): JSX.Element {
           <NavLinks />
         </div>
       </div>
-    </div>
+    </header>
   );
 }

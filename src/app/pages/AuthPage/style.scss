@@ -1,24 +1,24 @@
 .auth-page{
+  height: 82vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 88vh;
   .auth-title{
-    text-align: center;
     padding: 2rem 0;
+    text-align: center;
   }
   .auth-form{
+    gap: 25px;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
   }
   .auth-form-footer{
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 1rem;
-    text-align: center;
+    display: grid;
     margin-top: 25px;
+    text-align: center;
     color: var(--text);
+    grid-template-columns: 1fr;
     a{
       color: var(--text);
       text-decoration: none;

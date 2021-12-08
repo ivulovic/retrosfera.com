@@ -59,9 +59,9 @@ export function LoginPage() {
         </div>
         <div className="auth-form-footer">
           <Button onClick={onSubmit}>{t('login')}</Button>
-          <div>
+          {/* <div>
             {t('noAccount')} <Link to="/register">{t('register')}</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
