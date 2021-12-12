@@ -1,6 +1,13 @@
-// const CovidPage = {
-//   path: 'kovid-analitika',
-// };
+const Covid19Page = {
+  path: 'covid19',
+  results: [
+    {
+      title: 'coronaVirus',
+      description: 'covid19Description',
+      link: '/covid19',
+    },
+  ],
+};
 
 const ApplicationsPage = {
   path: 'applications',
@@ -39,34 +46,38 @@ const makeSrElement = (title, options) => ({
 });
 
 const db = [
-  // makeElement('korona', CovidPage),
-  // makeElement('koronavirus', CovidPage),
-  // makeElement('korona virus', CovidPage),
-  // makeElement('corona', CovidPage),
-  // makeElement('coronavirus', CovidPage),
-  // makeElement('corona virus', CovidPage),
-  // makeElement('virus korona', CovidPage),
-  // makeElement('covid', CovidPage),
-  // makeElement('covid19', CovidPage),
-  // makeElement('kovid', CovidPage),
-
+  makeEnElement('corona', Covid19Page),
+  makeEnElement('coronavirus', Covid19Page),
+  makeEnElement('corona virus', Covid19Page),
+  makeEnElement('covid', Covid19Page),
+  makeEnElement('covid19', Covid19Page),
+  makeEnElement('covid 19', Covid19Page),
   makeEnElement('apps', ApplicationsPage),
   makeEnElement('applications', ApplicationsPage),
   makeEnElement('wishlist', ApplicationsPage),
   makeEnElement('cryptoexchange', ApplicationsPage),
-
   //
-  // makeElement('корона', CovidPage),
-  // makeElement('коронавирус', CovidPage),
-  // makeElement('корона вирус', CovidPage),
-  // makeElement('вирус корона', CovidPage),
-  // makeElement('ковид', CovidPage),
-  // makeElement('ковид19', CovidPage),
-
-  makeSrElement('апликација', ApplicationsPage),
+  makeSrElement('корона', Covid19Page),
+  makeSrElement('коронавирус', Covid19Page),
+  makeSrElement('корона вирус', Covid19Page),
+  makeSrElement('вирус корона', Covid19Page),
+  makeSrElement('ковид', Covid19Page),
+  makeSrElement('ковид 19', Covid19Page),
+  makeSrElement('ковид19', Covid19Page),
   makeSrElement('апликације', ApplicationsPage),
   makeSrElement('листа жеља', ApplicationsPage),
   makeSrElement('криптоберза', ApplicationsPage),
+  makeSrElement('virus korona', Covid19Page),
+  makeSrElement('korona', Covid19Page),
+  makeSrElement('koronavirus', Covid19Page),
+  makeSrElement('korona virus', Covid19Page),
+  makeSrElement('kovid', Covid19Page),
+  makeSrElement('kovid 19', Covid19Page),
+  makeSrElement('kovid19', Covid19Page),
+  makeSrElement('aplikacije', ApplicationsPage),
+  makeSrElement('kriptoberza', ApplicationsPage),
+  makeSrElement('lista želja', ApplicationsPage),
+  makeSrElement('lista zelja', ApplicationsPage),
 ];
 
 export default db;

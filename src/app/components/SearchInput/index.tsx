@@ -30,9 +30,9 @@ function SearchInput({ focusOnInit = false, onSelect = (e): void => {} }) {
   const handleSearch = value => {
     setSearchTerm(value);
   };
-
-  const searchResults = searchByTitle(searchTerm).filter(x =>
-    x.lang.startsWith(language),
+  const langShort = language.slice(0, 2);
+  const searchResults = searchByTitle(searchTerm).filter(
+    x => x.lang === langShort,
   );
   const hasResults = searchTerm.length > 0 && searchResults.length; // searchTerm && searchTerm.length > 2;
   return (
@@ -41,7 +41,6 @@ function SearchInput({ focusOnInit = false, onSelect = (e): void => {} }) {
         <div className={`search-input ${hasResults ? 'has-results' : ''}`}>
           <input
             onKeyUp={e => {
-              console.log(e.which);
               if (e.which === 13 && searchResults.length) {
                 onSelect(searchResults[0].title);
               }
