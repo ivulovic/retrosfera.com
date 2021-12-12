@@ -2,57 +2,64 @@ import useOnResize from 'app/hooks/useOnResize';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { renderTimestampDate } from 'utils/project/date/covid';
 import formatNumber from 'utils/project/number/formatNumber';
+import { StackedBarProps } from '../types';
 
-export default function LineChartSection({ data, type }) {
+export default function StackedBarSection(props: StackedBarProps) {
+  const { data } = props;
+  const { t } = useTranslation();
   const { width } = useOnResize();
-  const chartRef = useRef();
+  const chartRef = useRef<any>();
   const getChart = chart => {
     chartRef.current = chart;
   };
   const onResize = () => {
-    const innerWidth = width - 16;
+    const innerWidth = width! - 16;
     const maxWidth = 960 - 16;
-    chartRef.current.setSize(innerWidth > maxWidth ? maxWidth : innerWidth);
+    chartRef.current?.setSize(innerWidth > maxWidth ? maxWidth : innerWidth);
   };
 
   useEffect(() => {
-    onResize();
+    if (width) {
+      onResize();
+    }
   }, [width]);
 
   const options = {
     chart: {
-      type: 'line',
-      style: {
-        padding: '0px',
-        margin: '0px',
-      },
+      type: 'column',
     },
     title: {
       text: '',
     },
     xAxis: {
-      // categories: labels,
       type: 'datetime',
       gridLineWidth: 0,
       lineWidth: 0,
       labels: {
         formatter: function () {
-          return renderTimestampDate(this.value, { showDay: type === 'daily' });
+          // @ts-ignore
+          return renderTimestampDate(this.value, { showDay: false });
         },
       },
     },
     yAxis: {
+      min: 0,
       title: {
         text: '',
       },
       gridLineWidth: 0,
-      minorGridLineWidth: 0,
+      lineWidth: 0,
       labels: {
         formatter: function () {
+          // @ts-ignore
           return formatNumber(this.value, false, 0);
         },
+      },
+      stackLabels: {
+        enabled: false,
       },
     },
     tooltip: {
@@ -63,15 +70,13 @@ export default function LineChartSection({ data, type }) {
         // points
         const self = this;
         return [
-          '<b>' +
-            renderTimestampDate(this.x, {
-              showDay: type === 'daily',
-              showFullMonth: type === 'daily',
-            }) +
-            '</b><br/>',
+          // @ts-ignore
+          '<b>' + renderTimestampDate(this.x, { showDay: false }) + '</b><br/>',
         ].concat(
+          // @ts-ignore
           this.points
-            ? this.points.map(function (point, i) {
+            ? // @ts-ignore
+              this.points.map(function (point, i) {
                 const legendSymbol =
                   "<svg width='16' height='16'>" +
                   point.series.legendSymbol.element.outerHTML +
@@ -83,6 +88,7 @@ export default function LineChartSection({ data, type }) {
                   ': ' +
                   formatNumber(point.y, false, 0) +
                   '';
+                // @ts-ignore
                 if (i !== self.points.length - 1) {
                   result += '<br/>';
                 }
@@ -95,6 +101,14 @@ export default function LineChartSection({ data, type }) {
     credits: {
       enabled: false,
     },
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+      },
+      series: {
+        borderColor: 'transparent',
+      },
+    },
     series: [
       // {
       //   name: 'Опорављени',
@@ -102,38 +116,34 @@ export default function LineChartSection({ data, type }) {
       //   color: 'var(--success)'
       // },
       {
-        name: 'Потврђени',
+        name: t('confirmed'),
         data: data.confirmed,
         color: 'var(--positive)',
       },
       {
-        name: 'Преминули',
+        name: t('deaths'),
         data: data.deaths,
         color: 'var(--negative)',
       },
       {
-        name: 'Тестирани',
+        name: t('tested'),
         data: data.tested,
         color: '#00b8d4',
       },
       {
-        name: 'Хоспитализовани',
+        name: t('hospitalized'),
         data: data.hospitalized,
         color: '#ffc107',
       },
-      {
-        name: 'Укупно на респиратору',
-        data: data.onRespirator,
-        color: '#fd7e14',
-      },
     ],
   };
+
   return (
     <div>
       <HighchartsReact
+        options={options}
         callback={getChart}
         highcharts={Highcharts}
-        options={options}
       />
     </div>
   );

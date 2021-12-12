@@ -1,8 +1,13 @@
 import MiniChartCard from 'app/components/Charts/MiniChartCard';
+import { useTranslation } from 'react-i18next';
 import { renderDate, renderTimestampDate } from 'utils/project/date/covid';
 import formatNumber from 'utils/project/number/formatNumber';
+import { DailyDataItem } from '../../types';
 
-export default function Sparklines({ data: { monthly, daily } }) {
+export default function Sparklines({ data: { monthly, daily } }): JSX.Element {
+  const { t } = useTranslation();
+  if (!monthly.length || !daily.length) return <></>;
+
   const getTimestampFromDate = date => {
     const dateObj = new Date(date);
     const d = dateObj.getDate();
@@ -13,26 +18,26 @@ export default function Sparklines({ data: { monthly, daily } }) {
   };
   const monthlyTooltip = description =>
     function () {
+      // @ts-ignore
       const xAxisValue = this.x;
       const { date } = monthly[xAxisValue - 1];
       const ts = getTimestampFromDate(date);
+      // @ts-ignore
       const label = renderTimestampDate(ts, { showDay: false });
-      return `
-      <b>${label}</b> <br/>
-      ${description}: ${formatNumber(this.y)}
-    `;
+      // @ts-ignore
+      return `<b>${label}</b> <br/>${description}: ${formatNumber(this.y)}`;
     };
   const dailyTooltip = description =>
     function () {
+      // @ts-ignore
       const { date } = currentMonthDailyData[this.x - 1];
-      return `
-      <b>${renderDate(date)}</b> <br/>
-      ${description}: ${formatNumber(this.y)}
-    `;
+      return `<b>${renderDate(date)}</b> <br/>${description}: ${formatNumber(
+        // @ts-ignore
+        this.y,
+      )}`;
     };
-  if (!monthly || !daily) return null;
   const currentMonth = new Date().getMonth();
-  const currentMonthDailyData = [];
+  const currentMonthDailyData: Array<DailyDataItem> = [];
 
   for (let i = daily.length - 1; i >= 0; i--) {
     const { date } = daily[i];
@@ -42,118 +47,116 @@ export default function Sparklines({ data: { monthly, daily } }) {
     }
     currentMonthDailyData.unshift(daily[i]);
   }
-  const todayRecord = daily[daily.length - 1];
+  const todayRecord =
+    daily[daily.length - 1] ||
+    daily[daily.length - 2] ||
+    daily[daily.length - 3];
   return (
     <div>
-      <div className="cards-container-3">
+      <div className="cards-container">
         <MiniChartCard
-          title="Укупан број тестираних лица"
+          title={t('sumTested')}
           chartData={monthly.map(({ sumTested }) => sumTested).join(', ')}
           seriesOptions={{
             color: '#3b4863',
           }}
-          tooltipFormatter={monthlyTooltip('Укупно тестираних')}
+          growth=""
+          tooltipFormatter={monthlyTooltip(t('sumTested'))}
           value={todayRecord.sumTested}
-          // growth={{ value: -16, text: " критично" }}
         />
 
         <MiniChartCard
-          title="Укупан број регистрованих лица"
+          title={t('sumRegistered')}
           seriesOptions={{
             color: '#6B6DEE',
-            // color: '#3b4863'
           }}
           chartData={monthly.map(({ sumPositive }) => sumPositive).join(', ')}
           value={todayRecord.sumPositive}
-          tooltipFormatter={monthlyTooltip('Укупно регистрованих')}
+          tooltipFormatter={monthlyTooltip(t('sumRegistered'))}
           growth={{
             value: todayRecord.percentOfInfectedSumComparedWithTestedSum + '%',
-            text: ' укупно тестираних лица',
+            text: ` ${t('percentOfTotalTested')}`,
           }}
         />
 
         <MiniChartCard
-          title="Укупан број лица на распиратору"
+          title={t('sumRespirator')}
           chartData={monthly
             .map(({ onRespiratorForDate }) => onRespiratorForDate)
             .join(', ')}
           seriesOptions={{
             color: '#fd7e14',
-            // color: '#3b4863'
           }}
-          tooltipFormatter={monthlyTooltip('Укупно на респиратору')}
+          tooltipFormatter={monthlyTooltip(t('sumRespirator'))}
           value={todayRecord.onRespiratorForDate}
           growth={{
             value:
               todayRecord.percentOnRespiratorComparedWithHospitalizedForDate +
               '%',
-            text: ' позитивних лица у последња 24 часа',
+            text: ` ${t('percentOfPositive')}`,
           }}
         />
       </div>
-      <div className="cards-container-4">
+      <div className="cards-container">
         <MiniChartCard
-          title="Број тестираних у последња 24 часа"
+          title={t('testedLast24h')}
           chartData={currentMonthDailyData
             .map(({ testedForDate }) => testedForDate)
             .join(', ')}
+          growth=""
           seriesOptions={{
             color: '#00b8d4',
             // color: '#3b4863'
           }}
-          tooltipFormatter={dailyTooltip('Број тестираних')}
+          tooltipFormatter={dailyTooltip(t('numOfTested'))}
           value={todayRecord.testedForDate}
-          // growth={{ value: -16, text: " критично" }}
         />
 
         <MiniChartCard
-          title="Број потврђених у последња 24 часа"
+          title={t('registeredLast24h')}
           chartData={currentMonthDailyData
             .map(({ positiveForDate }) => positiveForDate)
             .join(', ')}
           seriesOptions={{
             color: '#10b759',
-            // color: '#3b4863'
           }}
-          tooltipFormatter={dailyTooltip('Број потврђених')}
+          tooltipFormatter={dailyTooltip(t('numOfRegistered'))}
           value={todayRecord.positiveForDate}
           growth={{
             value: todayRecord.percentOfInfectedComparedWithTestedForDate + '%',
-            text: ' тестираних лица',
+            text: ` ${t('percentOfTested')}`,
           }}
         />
 
         <MiniChartCard
-          title="Број хоспитализованих у последња 24 часа"
+          title={t('hospitalizedLast24h')}
           chartData={currentMonthDailyData
             .map(({ hospitalizedForDate }) => hospitalizedForDate)
             .join(', ')}
           seriesOptions={{
             color: '#ffc107',
-            // color: '#3b4863'
           }}
-          tooltipFormatter={dailyTooltip('Број хоспитализованих')}
+          tooltipFormatter={dailyTooltip(t('numOfDeaths'))}
           value={todayRecord.hospitalizedForDate}
           growth={{
             value:
               todayRecord.percentOfHospitalizedComparedWithInfectedSumForDate +
               '%',
-            text: ' укупно позитивних лица',
+            text: ` ${t('percentOfTotalPositive')}`,
           }}
         />
 
         <MiniChartCard
-          title="Број преминулих у последња 24 часа"
+          title={t('deathsLast24h')}
+          growth=""
           chartData={currentMonthDailyData
             .map(({ deathsForDate }) => deathsForDate)
             .join(', ')}
           seriesOptions={{
             color: '#dc3545',
-            // color: '#3b4863'
           }}
-          tooltipFormatter={dailyTooltip('Број преминулих')}
+          tooltipFormatter={dailyTooltip(t('numOfDeaths'))}
           value={todayRecord.deathsForDate}
-          // growth={{ value: -16, text: " критично" }}
         />
       </div>
     </div>

@@ -59,7 +59,7 @@ export const cardsOrder = [
 // };
 
 export const keysMapper = {
-  BROJ_LICA_NA_RESPIRATORU_ZA_DATI_DATUM: 'respiratorForDate',
+  // BROJ_LICA_NA_RESPIRATORU_ZA_DATI_DATUM: 'respiratorForDate',
   BROJ_HOSPITALIZOVANIH_LICA_ZA_DATI_DATUM: 'hospitalizedForDate',
   BROJ_POZITIVNIH_LICA_ZA_DATI_DATUM: 'positiveForDate',
   BROJ_TESTIRANIH_LICA_ZA_DATI_DATUM: 'testedForDate',

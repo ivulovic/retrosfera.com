@@ -2,8 +2,8 @@ import { Children, useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
 
 export default function DataProvider(props) {
-  const [daily, setDaily] = useState();
-  const [monthly, setMonthly] = useState();
+  const [daily, setDaily] = useState([]);
+  const [monthly, setMonthly] = useState([]);
   useEffect(() => {
     fetch('/data/covid19/monthlySummary.json')
       .then(res => res.json())

@@ -11,7 +11,6 @@ const defaultOptions = {
     style: {
       overflow: 'visible',
     },
-    // small optimalization, saves 1-2 ms each sparkline
     skipClone: true,
   },
   title: {
@@ -100,7 +99,10 @@ const defaultOptions = {
   ],
 };
 
-class SparkLine extends React.Component {
+class SparkLine extends React.Component<any, any> {
+  chart: any;
+  container: any;
+
   constructor(props) {
     super(props);
   }
@@ -112,7 +114,7 @@ class SparkLine extends React.Component {
   };
 
   componentDidMount() {
-    const options = Highcharts.merge(defaultOptions, this.props.options);
+    const options = Highcharts.merge(defaultOptions, this.props.options) as any;
     this.chart = Highcharts.chart(this.container, options);
     window.addEventListener('resize', this.handleChartResize);
   }
@@ -123,7 +125,7 @@ class SparkLine extends React.Component {
   }
 
   render() {
-    return <td ref={container => (this.container = container)}></td>;
+    return <td ref={c => (this.container = c)}></td>;
   }
 }
 

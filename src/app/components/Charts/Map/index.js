@@ -1,5 +1,4 @@
 import LoadingIndicator from 'app/components/LoadingIndicator';
-import React from 'react';
 import {
   ComposableMap,
   Geographies,

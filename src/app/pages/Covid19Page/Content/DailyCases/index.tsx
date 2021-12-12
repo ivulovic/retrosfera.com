@@ -2,13 +2,16 @@ import { useState, useEffect } from 'react';
 import Subtitle from 'app/components/Subtitle';
 import { months } from 'utils/project/date/covid';
 import LineChartSection from '../../LineChartSection';
+import { useTranslation } from 'react-i18next';
+import { ChartDataItem, ChartDataProps } from '../../types';
 
-export default function DailyCases(props) {
-  const {
-    data: { daily: initialDailyData },
-  } = props;
-  const [activeMonthDate, setActiveMonthDate] = useState(new Date());
-  const [filteredData, setFilteredData] = useState();
+export default function DailyCases(props): JSX.Element {
+  const { t } = useTranslation();
+  const { data: initialDailyData } = props;
+  const [activeMonthDate, setActiveMonthDate] = useState<Date | string>(
+    new Date(),
+  );
+  const [filteredData, setFilteredData] = useState<ChartDataProps>();
 
   useEffect(() => {
     if (activeMonthDate && initialDailyData) {
@@ -16,14 +19,14 @@ export default function DailyCases(props) {
     }
   }, [initialDailyData, activeMonthDate]);
 
-  const updateDataForMonth = (data, date = new Date()) => {
+  const updateDataForMonth = (data, date) => {
     const month = new Date(date).getMonth();
     const year = new Date(date).getFullYear();
-    const confirmed = [];
-    const deaths = [];
-    const tested = [];
-    const hospitalized = [];
-    const onRespirator = [];
+    const deaths: Array<ChartDataItem> = [];
+    const tested: Array<ChartDataItem> = [];
+    const confirmed: Array<ChartDataItem> = [];
+    const hospitalized: Array<ChartDataItem> = [];
+    const onRespirator: Array<ChartDataItem> = [];
     data
       .filter(
         d =>
@@ -54,8 +57,8 @@ export default function DailyCases(props) {
       );
     setFilteredData({ confirmed, deaths, tested, hospitalized, onRespirator });
   };
-  if (!initialDailyData) {
-    return null;
+  if (!initialDailyData.length) {
+    return <></>;
   }
   const firstDate = initialDailyData[0].date;
   const newestDate = initialDailyData[initialDailyData.length - 1].date;
@@ -92,16 +95,16 @@ export default function DailyCases(props) {
   return (
     <div>
       <Subtitle>
-        Дневни приказ промене стања за месец {months[dailyDateObj.getMonth()]}{' '}
+        {t('dailyStatisticForMonth')} {months[dailyDateObj.getMonth()]}{' '}
         {dailyDateObj.getFullYear()}
       </Subtitle>
       {filteredData && <LineChartSection data={filteredData} type="daily" />}
       <div className="chart-pagination">
         <button className="button" onClick={decreaseDailyMonth}>
-          Претходни месец
+          {t('lastMonth')}
         </button>
         <button className="button" onClick={increaseDailyMonth}>
-          Наредни месец
+          {t('nextMonth')}
         </button>
       </div>
     </div>
