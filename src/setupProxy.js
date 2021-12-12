@@ -12,4 +12,14 @@ module.exports = function (app) {
       },
     }),
   );
+  app.use(
+    '/data',
+    createProxyMiddleware({
+      target: 'https://retrosfera.com/',
+      changeOrigin: true,
+      // pathRewrite: {
+      //   '^/bitfinex': '/',
+      // },
+    }),
+  );
 };

@@ -8,6 +8,9 @@ export default function NavLinks() {
   const isUserLoggedIn = useSelector(makeSelectIsUserAuthenticated);
   return (
     <>
+      <NavLink activeClassName="active" to="/covid19" className="nav-item">
+        {t('covid19Title')}
+      </NavLink>
       {isUserLoggedIn ? (
         <>
           <NavLink

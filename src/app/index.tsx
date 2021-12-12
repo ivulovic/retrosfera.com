@@ -20,6 +20,7 @@ import OnlyPublicRoute from 'app/components/Routes/OnlyPublicRoute';
 import SearchPage from 'app/pages/SearchPage';
 import BasicLayout from 'app/layouts/BasicLayout';
 import DefaultLayout from 'app/layouts/DefaultLayout';
+import Covid19Page from './pages/Covid19Page';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -40,6 +41,11 @@ export function App() {
           layout={BasicLayout}
           component={HomePage}
           path={process.env.PUBLIC_URL + '/'}
+        />
+        <PublicRoute
+          layout={DefaultLayout}
+          component={Covid19Page}
+          path={process.env.PUBLIC_URL + '/covid19'}
         />
         <PublicRoute
           layout={DefaultLayout}

@@ -7,6 +7,7 @@ import './style.scss';
 import WishlistOutline from 'app/icons/WishlistOutline';
 import BitcoinOutline from 'app/icons/BitcoinOutline';
 import SettingsOutline from 'app/icons/SettingsOutline';
+import VirusOutline from 'app/icons/VirusOutline';
 
 export default function HomePage() {
   const history = useHistory();
@@ -23,6 +24,11 @@ export default function HomePage() {
       </div>
       <SearchInput onSelect={onNavigate} />
       <div className="quick-access">
+        <Thumbnail
+          link={'/covid19'}
+          icon={VirusOutline}
+          title={'covid19Title'}
+        />
         <Thumbnail
           link={'/applications/wishlist'}
           icon={WishlistOutline}

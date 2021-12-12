@@ -1,0 +1,46 @@
+.mini-chart-card{
+  padding: 15px 0px;
+  color: var(--text);
+  align-items: flex-start;
+
+}
+.mini-chart-card .title{
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.mini-chart-card .value-row{
+  display: grid;
+  flex-direction: row;
+  /* min-height: 88px; */
+  margin: 0;
+}
+.mini-chart-card .value-row > .value{
+  display: inline-block;
+  font-size: 28px;
+  margin: 0.5rem 0;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+.mini-chart-card .growth{
+  display: flex;
+  align-items: flex-end
+}
+.mini-chart-card .growth .value{
+  font-weight: 500;
+}
+.mini-chart-card .growth .text{
+  font-weight: 400;
+  display: inline-block;
+  color: var(--text-secondary);
+  margin-left: 5px;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 640px) {
+  /* .mini-chart-card .value-row{
+    min-height: unset;
+  } */
+}

@@ -73,5 +73,7 @@
   "chooseTickerSymbols": "Choose cryptocurrencies you want to follow. Shares calculator will show only currency pairs you selected. Maximum number of cryptocurrencies you can select is",
   "navigation": "Navigation",
 
-  "searchResultsForTerm": "Search results for term"
+  "searchResultsForTerm": "Search results for term",
+
+  "covid19Title": "COVID 19"
 }

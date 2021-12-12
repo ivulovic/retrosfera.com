@@ -34,7 +34,6 @@ body {
   --border: rgba(58,52,51,0.12);
   --border-dark: rgba(58,52,51,0.24);
   --border-light: rgba(58,52,51,0.05);
-
   --positive: #29b58e;
   --positive-light:  #29b58e26;
   --negative: #dd2626;
@@ -66,7 +65,6 @@ body {
 .dark {
   background-color: var(--background);
 }
-
 .page-wrapper{
   max-width: 960px;
   width: 100%;
@@ -74,19 +72,21 @@ body {
   padding: 0 0.5rem;
   box-sizing: border-box;
 }
-
+.positive{
+  color: var(--positive);
+}
+.negative{
+  color: var(--negative);
+}
 .primary{
   color: var(--text);
 }
-
 .secondary{
   color: var(--text-secondary);
 }
-
 .text-center{
   text-align: center;
 }
-
 .page-content-centered{
   height: calc(100vh - 64px);
   display: flex;

@@ -1,0 +1,44 @@
+.cards-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin: 0px;
+}
+svg path{
+  outline: none;
+}
+.chart-pagination {
+  display: flex;
+  justify-content: space-between;
+}
+.chart-pagination button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--background-variant);
+  padding: 6px 10px;
+  color: var(--text);
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.chart-pagination button:hover{
+  background-color: var(--background-variant);
+}
+.highcharts-background{
+  fill: var(--background);
+}
+
+@media screen and (max-width: 1024px) {
+  .cards-container{
+    grid-template-columns: 1fr 1fr;
+  
+  }
+}
+@media screen and (max-width: 640px) {
+  .cards-container-3,
+  .cards-container-4{
+    grid-template-columns: 1fr;
+  }
+}

@@ -51,5 +51,5 @@ export default function formatWithCommas(x: any, options = initialOptions) {
       prefix = '+';
     }
   }
-  return prefix + parts.join(SEPARATORS.DECIMAL);
+  return prefix + parts.filter(x => !!x).join(SEPARATORS.DECIMAL);
 }
