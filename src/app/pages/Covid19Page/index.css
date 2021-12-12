@@ -32,13 +32,7 @@ svg path{
 
 @media screen and (max-width: 1024px) {
   .cards-container{
-    grid-template-columns: 1fr 1fr;
-  
-  }
-}
-@media screen and (max-width: 640px) {
-  .cards-container-3,
-  .cards-container-4{
     grid-template-columns: 1fr;
+  
   }
 }
