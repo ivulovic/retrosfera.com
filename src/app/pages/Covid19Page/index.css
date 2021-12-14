@@ -36,9 +36,9 @@ svg path{
   fill: var(--background);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 640px) {
   .cards-container{
+    display: grid;
     grid-template-columns: 1fr;
-  
   }
 }
