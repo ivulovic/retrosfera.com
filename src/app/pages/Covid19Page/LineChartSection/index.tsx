@@ -29,21 +29,24 @@ export default function LineChartSection(props: LineChartProps): JSX.Element {
 
   const options = {
     chart: {
+      height: 600,
       type: 'line',
-      style: {
-        padding: '0px',
-        margin: '0px',
-      },
     },
     title: {
       text: '',
     },
     xAxis: {
-      // categories: labels,
       type: 'datetime',
       gridLineWidth: 0,
       lineWidth: 0,
+      tickPositions: data.confirmed.map(x => x[0]),
       labels: {
+        rotation: -50,
+        align: 'right',
+        style: {
+          textOverflow: 'none',
+          whiteSpace: 'nowrap',
+        },
         formatter: function () {
           // @ts-ignore
           return renderTimestampDate(this.value, { showDay: type === 'daily' });

@@ -1,6 +1,7 @@
 export interface Covid19DataContext {
   daily: Array<any>;
   monthly: Array<any>;
+  isLoading: boolean;
 }
 
 export type MonthlyData = Array<MonthlyDataItem>;

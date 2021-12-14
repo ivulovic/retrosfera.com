@@ -7,11 +7,15 @@ import DailyCases from './DailyCases';
 import Sparklines from './Sparklines';
 import { useTranslation } from 'react-i18next';
 import { Covid19DataContext } from '../types';
+import LoadingIndicator from 'app/components/LoadingIndicator';
 
 export default function Content() {
-  const { monthly, daily } = useContext<Covid19DataContext>(DataContext);
-  console.log(monthly, daily);
+  const { monthly, daily, isLoading } =
+    useContext<Covid19DataContext>(DataContext);
   const { t } = useTranslation();
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
   return (
     <div className="charts">
       <Title>

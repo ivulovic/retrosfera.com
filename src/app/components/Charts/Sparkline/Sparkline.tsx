@@ -108,9 +108,9 @@ class SparkLine extends React.Component<any, any> {
   }
 
   handleChartResize = e => {
-    const innerWidth = e.target.innerWidth - 16;
-    const maxWidth = 960 - 16;
-    this.chart.setSize(innerWidth > maxWidth ? maxWidth : innerWidth);
+    // const innerWidth = e.target.innerWidth - 16;
+    // const maxWidth = 960 - 16;
+    // this.chart.setSize(innerWidth > maxWidth ? maxWidth : innerWidth);
   };
 
   componentDidMount() {

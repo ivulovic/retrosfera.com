@@ -1,4 +1,5 @@
 import MiniChartCard from 'app/components/Charts/MiniChartCard';
+import LoadingIndicator from 'app/components/LoadingIndicator';
 import { useTranslation } from 'react-i18next';
 import { renderDate, renderTimestampDate } from 'utils/project/date/covid';
 import formatNumber from 'utils/project/number/formatNumber';
@@ -96,8 +97,7 @@ export default function Sparklines({ data: { monthly, daily } }): JSX.Element {
             text: ` ${t('percentOfPositive')}`,
           }}
         />
-      </div>
-      <div className="cards-container">
+
         <MiniChartCard
           title={t('testedLast24h')}
           chartData={currentMonthDailyData

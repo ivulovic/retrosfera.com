@@ -14,7 +14,7 @@
 .mini-chart-card .value-row{
   display: grid;
   flex-direction: row;
-  /* min-height: 88px; */
+  min-height: 88px;
   margin: 0;
 }
 .mini-chart-card .value-row > .value{
@@ -40,7 +40,7 @@
   font-size: 0.8rem;
 }
 @media screen and (max-width: 640px) {
-  /* .mini-chart-card .value-row{
+  .mini-chart-card .value-row{
     min-height: unset;
-  } */
+  }
 }

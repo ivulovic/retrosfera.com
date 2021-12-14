@@ -29,6 +29,7 @@ export default function StackedBarSection(props: StackedBarProps) {
 
   const options = {
     chart: {
+      height: 600,
       type: 'column',
     },
     title: {
@@ -38,7 +39,14 @@ export default function StackedBarSection(props: StackedBarProps) {
       type: 'datetime',
       gridLineWidth: 0,
       lineWidth: 0,
+      tickPositions: data.confirmed.map(x => x[0]),
       labels: {
+        rotation: -50,
+        align: 'right',
+        style: {
+          textOverflow: 'none',
+          whiteSpace: 'nowrap',
+        },
         formatter: function () {
           // @ts-ignore
           return renderTimestampDate(this.value, { showDay: false });

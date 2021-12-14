@@ -95,7 +95,7 @@ export default function DailyCases(props): JSX.Element {
   return (
     <div>
       <Subtitle>
-        {t('dailyStatisticForMonth')} {months[dailyDateObj.getMonth()]}{' '}
+        {t('dailyStatisticForMonth')} {t(months[dailyDateObj.getMonth()])}{' '}
         {dailyDateObj.getFullYear()}
       </Subtitle>
       {filteredData && <LineChartSection data={filteredData} type="daily" />}
