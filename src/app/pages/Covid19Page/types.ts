@@ -46,4 +46,9 @@ export interface ChartDataProps {
   onRespirator?: Array<ChartDataItem>;
 }
 
+export enum CovidPageViewEnum {
+  Graphic = 'graphic',
+  Ambulances = 'ambulances',
+}
+
 export type ChartDataItem = Array<number>;

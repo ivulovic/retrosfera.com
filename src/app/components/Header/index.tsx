@@ -14,7 +14,6 @@ export default function Header(): JSX.Element {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   useEffect(() => {
-    console.log(location);
     setIsNavbarOpen(false);
   }, [location]);
 

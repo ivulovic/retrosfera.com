@@ -128,5 +128,19 @@ svg path{
   }
   .button-group{
     margin: 1rem 0;
+    a{
+      color: var(--text);
+      display: inline-block;
+      text-decoration: none;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      background-color: var(--border);
+      margin-right: 0.5rem;
+      opacity: 0.5;
+      &.active{
+        opacity: 1;  
+      }
+    }
   }
 }

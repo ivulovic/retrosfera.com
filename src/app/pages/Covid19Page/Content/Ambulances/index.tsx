@@ -9,6 +9,7 @@ import AmbulancesTable from './AmbulancesTable';
 export default function Ambulances() {
   const { t } = useTranslation();
   const { ambulances, isLoading } = useContext<Covid19DataContext>(DataContext);
+
   if (isLoading) return <LoadingIndicator />;
   return (
     <div>

@@ -1,3 +1,5 @@
+import { CovidPageViewEnum } from 'app/pages/Covid19Page/types';
+
 const Covid19Page = {
   path: 'covid19',
   results: [
@@ -5,6 +7,16 @@ const Covid19Page = {
       title: 'coronaVirus',
       description: 'covid19Description',
       link: '/covid19',
+    },
+    {
+      title: 'graphicView',
+      description: 'graphicViewSubtitle',
+      link: `/covid19`,
+    },
+    {
+      title: 'ambulancesView',
+      description: 'ambulancesViewSubtitle',
+      link: `/covid19/${CovidPageViewEnum.Ambulances}`,
     },
   ],
 };
@@ -50,6 +62,8 @@ const db = [
   makeEnElement('coronavirus', Covid19Page),
   makeEnElement('corona virus', Covid19Page),
   makeEnElement('covid', Covid19Page),
+  makeEnElement('covid ambulances', Covid19Page),
+  makeEnElement('ambulances', Covid19Page),
   makeEnElement('covid19', Covid19Page),
   makeEnElement('covid 19', Covid19Page),
   makeEnElement('apps', ApplicationsPage),
@@ -62,16 +76,21 @@ const db = [
   makeSrElement('корона вирус', Covid19Page),
   makeSrElement('вирус корона', Covid19Page),
   makeSrElement('ковид', Covid19Page),
+  makeSrElement('ковид амбуланте', Covid19Page),
+  makeSrElement('амбуланте', Covid19Page),
   makeSrElement('ковид 19', Covid19Page),
   makeSrElement('ковид19', Covid19Page),
   makeSrElement('апликације', ApplicationsPage),
   makeSrElement('листа жеља', ApplicationsPage),
   makeSrElement('криптоберза', ApplicationsPage),
+
   makeSrElement('virus korona', Covid19Page),
   makeSrElement('korona', Covid19Page),
   makeSrElement('koronavirus', Covid19Page),
   makeSrElement('korona virus', Covid19Page),
   makeSrElement('kovid', Covid19Page),
+  makeSrElement('kovid ambulante', Covid19Page),
+  makeSrElement('ambulante', Covid19Page),
   makeSrElement('kovid 19', Covid19Page),
   makeSrElement('kovid19', Covid19Page),
   makeSrElement('aplikacije', ApplicationsPage),
