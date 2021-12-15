@@ -77,8 +77,7 @@
 
   "covid19Title": "COVID 19",
   "covid19Description": "Latest information Corona virus status in Serbia, since the first confirmed case until today.",
-  "coronaVirus": "Corona virus",
-  "statisticForSerbia": "statistic for Serbia",
+  "coronaVirus": "Corona virus statistic",
   "monthlyStatistic": "Statistic for each month independently",
   "statisticOvertime": "Statistic over time",
   "dailyStatisticForMonth": "Daily statistic for month",
@@ -116,5 +115,20 @@
   "september": "September",
   "october": "October",
   "november": "November",
-  "december": "December"
+  "december": "December",
+  "allCities": "All cities",
+  "city": "City",
+  "name": "Name",
+  "streetName": "Street name",
+  "phone": "Phone number",
+  "map": "Map",
+  "viewInMapApp": "Open in Maps application",
+  "hourShort": "h",
+  "weekdayWorkHours": "Working hours on weekdays",
+  "weekendWorkHours": "Working hours on weekends",
+  "graphicView": "Graph view",
+  "graphicViewSubtitle": "Virus behavior over time shown through charts and cards",
+  "ambulancesViewSubtitle": "Heath institutions operating in the COVID mode",
+  "ambulancesView": "COVID ambulances",
+  "noAmbulances": "Currently there's no ambulances in the COVID mode"
 }

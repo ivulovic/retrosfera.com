@@ -1,10 +1,10 @@
 import DataProvider from './DataProvider';
 import Content from './Content';
-import './index.css';
+import './style.scss';
 
 export default function CovidPage() {
   return (
-    <main className="page-wrapper">
+    <main className="page-wrapper covid-page">
       <DataProvider>
         <Content />
       </DataProvider>

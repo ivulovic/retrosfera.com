@@ -1,0 +1,132 @@
+.cards-container{
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0px;
+}
+.cards-container > div {
+  flex: 1 0 40%;
+}
+svg path{
+  outline: none;
+}
+.chart-pagination {
+  display: flex;
+  justify-content: space-between;
+}
+.chart-pagination button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--background-variant);
+  padding: 6px 10px;
+  color: var(--text);
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.chart-pagination button:hover{
+  background-color: var(--background-variant);
+}
+.highcharts-background{
+  fill: var(--background);
+}
+
+@media screen and (max-width: 640px) {
+  .cards-container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.covid-page{
+  .filter{
+    margin-bottom: 0.5rem;
+  }
+  select{
+    outline: none;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    color: var(--text);
+    padding: 0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    cursor: pointer;
+    width: 100%;
+    option{
+      text-transform: uppercase;
+      background-color: var(--background);
+      color: var(--text);
+    }
+  }
+  .table{
+    color: var(--text);
+    width: 100%;
+    overflow: auto;
+    border-collapse: collapse;
+    .no-wrap{
+      white-space: nowrap;
+    }
+    thead th,
+    tbody td{
+      // max-width: 25%;
+      font-size: 0.70rem;
+      padding: 0.5rem 0.25rem;
+    }
+    thead th{
+      text-align: left;
+      // border-bottom: 1px solid var(--border-light);
+    }
+
+    tbody{
+      tr:not(.subrow-container){
+        cursor: pointer;
+        &:nth-child(even){
+          background-color: var(--background-variant);
+        }
+      }
+      td:first-child{
+        padding-left: 0.5rem;
+        font-weight: 600;
+        white-space: nowrap;
+        svg{
+          position: relative;
+          top: 3px;
+          right: 3px;
+        }
+      }
+      .subrow-container{
+        // border-bottom: 1px solid var(--border-light);
+        background-color:  var(--border-light);
+        .subrow{
+          padding: 0.5rem 1rem;
+          a{
+            color: var(--primary);
+            &:hover{
+              border-bottom: 1px solid var(--primary);
+            }
+          }
+          p{
+            margin: 0px;
+            padding: 0.25rem 0;
+            font-size: inherit;
+            & > span:first-child{
+              font-weight: 600;
+              margin-right: 1rem;
+              width: 150px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .button-group{
+    margin: 1rem 0;
+  }
+}

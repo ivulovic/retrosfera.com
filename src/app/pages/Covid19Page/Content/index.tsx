@@ -1,35 +1,35 @@
-import { useContext } from 'react';
+import { useState } from 'react';
 import Title from 'app/components/Title';
-import { DataContext } from '../DataProvider/DataContext';
-import CasesByMonth from './CasesByMonth';
-import CasesOvertime from './CasesOvertime';
-import DailyCases from './DailyCases';
-import Sparklines from './Sparklines';
 import { useTranslation } from 'react-i18next';
-import { Covid19DataContext } from '../types';
-import LoadingIndicator from 'app/components/LoadingIndicator';
+import Ambulances from './Ambulances';
+import Button from 'app/components/Button';
+import Graphics from './Graphics';
 
 export default function Content() {
-  const { monthly, daily, isLoading } =
-    useContext<Covid19DataContext>(DataContext);
+  const [activeTab, setActiveTab] = useState<1 | 2>(1);
   const { t } = useTranslation();
-  if (isLoading) {
-    return <LoadingIndicator />;
-  }
+
   return (
     <div className="charts">
-      <Title>
-        {t('coronaVirus')} {t('statisticForSerbia')}
-      </Title>
-      <Sparklines
-        data={{
-          monthly,
-          daily,
-        }}
-      />
-      <CasesOvertime data={monthly} />
-      <CasesByMonth data={monthly} />
-      <DailyCases data={daily} />
+      <Title>{t('coronaVirus')}</Title>
+
+      <div className="button-group">
+        <Button
+          kind={`group-button ${activeTab === 1 ? 'active' : ''}`}
+          onClick={() => setActiveTab(1)}
+        >
+          {t('graphicView')}
+        </Button>
+        <Button
+          kind={`group-button ${activeTab === 2 ? 'active' : ''}`}
+          onClick={() => setActiveTab(2)}
+        >
+          {t('ambulancesView')}
+        </Button>
+      </div>
+
+      {activeTab === 1 ? <Graphics /> : null}
+      {activeTab === 2 ? <Ambulances /> : null}
     </div>
   );
 }
