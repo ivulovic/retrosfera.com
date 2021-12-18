@@ -142,7 +142,6 @@ export function* fetchProduct(action) {
 }
 
 export function* getOtherUserWishlist(action) {
-  yield delay(500);
   const requestURL = `/api/wishlists/user`;
 
   try {

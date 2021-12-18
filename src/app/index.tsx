@@ -21,6 +21,7 @@ import SearchPage from 'app/pages/SearchPage';
 import BasicLayout from 'app/layouts/BasicLayout';
 import DefaultLayout from 'app/layouts/DefaultLayout';
 import Covid19Page from './pages/Covid19Page';
+import AirQualityPage from './pages/AirQualityPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -46,6 +47,11 @@ export function App() {
           layout={DefaultLayout}
           component={Covid19Page}
           path={process.env.PUBLIC_URL + '/covid19'}
+        />
+        <PublicRoute
+          layout={DefaultLayout}
+          component={AirQualityPage}
+          path={process.env.PUBLIC_URL + '/air-quality'}
         />
         <PublicRoute
           layout={DefaultLayout}

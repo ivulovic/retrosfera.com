@@ -13,6 +13,16 @@ module.exports = function (app) {
     }),
   );
   app.use(
+    '/sepa',
+    createProxyMiddleware({
+      target: 'http://data.sepa.gov.rs/api/3',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/sepa': '/',
+      },
+    }),
+  );
+  app.use(
     '/data',
     createProxyMiddleware({
       target: 'https://retrosfera.com/',

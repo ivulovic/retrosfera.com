@@ -4,7 +4,6 @@ import { request, makeGetReq } from 'utils/request';
 import { actions } from './slice';
 
 export function* getAvailableSymbols(action) {
-  yield delay(500);
   const requestURL = `/bitfinex/conf/pub:list:pair:exchange`;
 
   try {

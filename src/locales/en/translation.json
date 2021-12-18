@@ -130,5 +130,18 @@
   "graphicViewSubtitle": "Virus behavior over time shown through charts and cards",
   "ambulancesViewSubtitle": "Heath institutions operating in the COVID mode",
   "ambulancesView": "COVID ambulances",
-  "noAmbulances": "Currently there's no ambulances in the COVID mode"
+  "noAmbulances": "Currently there's no ambulances in the COVID mode",
+
+  "airQualityTitle": "Air quality",
+  "status": "Status",
+  "value": "Value",
+  "good": "Good",
+  "perfect": "Perfect",
+  "acceptable": "Acceptable",
+  "polluted": "Polluted",
+  "hazardous": "Hazardous",
+  "metrics": "Metrics",
+  "moreThan": "and more",
+  "stationPlace": "Station place",
+  "noAirQualityData": "Currently there's no air quality information"
 }

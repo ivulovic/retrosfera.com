@@ -11,6 +11,9 @@ export default function NavLinks() {
       <NavLink activeClassName="active" to="/covid19" className="nav-item">
         {t('covid19Title')}
       </NavLink>
+      <NavLink activeClassName="active" to="/air-quality" className="nav-item">
+        {t('airQualityTitle')}
+      </NavLink>
       {isUserLoggedIn ? (
         <>
           <NavLink
