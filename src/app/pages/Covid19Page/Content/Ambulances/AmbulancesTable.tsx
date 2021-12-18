@@ -7,7 +7,7 @@ export default function AmbulancesTable(props) {
   const { data } = props;
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState({});
-  const [filter, setFilter] = useState('БЕОГРАД');
+  const [filter, setFilter] = useState('all');
   const toggleExpanded = id => {
     const obj = { ...expanded };
     if (obj[id]) {

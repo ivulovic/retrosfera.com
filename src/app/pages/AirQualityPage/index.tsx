@@ -22,7 +22,7 @@ export default function AirQualityPage(): JSX.Element {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
 
-  const [filter, setFilter] = useState('Београд');
+  const [filter, setFilter] = useState('all');
 
   const handleFilterChange = e => {
     setFilter(e.target.value);
@@ -47,6 +47,7 @@ export default function AirQualityPage(): JSX.Element {
   return (
     <div className="page-wrapper air-quality-page">
       <Title>{t('airQualityTitle')}</Title>
+      <Subtitle>{t('airQualityDescription')}</Subtitle>
       {isLoading && <LoadingIndicator />}
       {dataArr.length && !isLoading ? (
         <>

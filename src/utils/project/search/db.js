@@ -1,5 +1,16 @@
 import { CovidPageViewEnum } from 'app/pages/Covid19Page/types';
 
+const AirQualityPage = {
+  path: 'air-quality',
+  results: [
+    {
+      title: 'airQualityTitle',
+      description: 'airQualityDescription',
+      link: '/air-quality',
+    },
+  ],
+};
+
 const Covid19Page = {
   path: 'covid19',
   results: [
@@ -70,6 +81,8 @@ const db = [
   makeEnElement('applications', ApplicationsPage),
   makeEnElement('wishlist', ApplicationsPage),
   makeEnElement('cryptoexchange', ApplicationsPage),
+  makeEnElement('air quality', AirQualityPage),
+  makeEnElement('air polution', AirQualityPage),
   //
   makeSrElement('корона', Covid19Page),
   makeSrElement('коронавирус', Covid19Page),
@@ -83,6 +96,9 @@ const db = [
   makeSrElement('апликације', ApplicationsPage),
   makeSrElement('листа жеља', ApplicationsPage),
   makeSrElement('криптоберза', ApplicationsPage),
+  makeSrElement('ваздух', AirQualityPage),
+  makeSrElement('загађење ваздуха', AirQualityPage),
+  makeSrElement('квалитет ваздуха', AirQualityPage),
 
   makeSrElement('virus korona', Covid19Page),
   makeSrElement('korona', Covid19Page),
@@ -97,6 +113,10 @@ const db = [
   makeSrElement('kriptoberza', ApplicationsPage),
   makeSrElement('lista želja', ApplicationsPage),
   makeSrElement('lista zelja', ApplicationsPage),
+  makeSrElement('vazduh', AirQualityPage),
+  makeSrElement('zagađenje vazduha', AirQualityPage),
+  makeSrElement('zagadjenje vazduha', AirQualityPage),
+  makeSrElement('kvalitet vazduha', AirQualityPage),
 ];
 
 export default db;

@@ -133,6 +133,7 @@
   "noAmbulances": "Currently there's no ambulances in the COVID mode",
 
   "airQualityTitle": "Air quality",
+  "airQualityDescription": "Latest information about the air pollution in places where metric stations are currently installed",
   "status": "Status",
   "value": "Value",
   "good": "Good",
