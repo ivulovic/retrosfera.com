@@ -11,6 +11,7 @@ import { SELECTED_ITEMS_KEY, SOURCE_LIMIT } from '../constants';
 import { getLocalDbData, setLocalDbData } from 'utils/localdb';
 import './style.scss';
 import { actions } from '../slice';
+import { Helmet } from 'react-helmet-async';
 
 export default function ConfigurationPage() {
   const { t } = useTranslation();
@@ -68,35 +69,42 @@ export default function ConfigurationPage() {
   }
 
   return (
-    <div className="cryptoexchange-configuration">
-      <div className="page-info">
-        <div className="header">
-          <h4>
-            <Link to={path}>{t('cryptoexchangeTitle')}</Link>
-          </h4>
-          <Title>{t('configuration')}</Title>
-        </div>
-        <div className="data">
-          <Subtitle type="primary">
-            {t('chooseTickerSymbols')} {SOURCE_LIMIT}.
-          </Subtitle>
-          {state.map(s => {
-            return (
-              <div key={s.id} className="configuration-row">
-                <input
-                  onChange={handleChange}
-                  checked={s.checked}
-                  type="checkbox"
-                  id={s.id}
-                  name={s.id}
-                  value={`t${s.id}`}
-                />
-                <label htmlFor={s.id}>{s.id}</label>
-              </div>
-            );
-          })}
+    <>
+      <Helmet>
+        <title>
+          {t('cryptoexchangeTitle')} | {t('configuration')}
+        </title>
+      </Helmet>
+      <div className="cryptoexchange-configuration">
+        <div className="page-info">
+          <div className="header">
+            <h4>
+              <Link to={path}>{t('cryptoexchangeTitle')}</Link>
+            </h4>
+            <Title>{t('configuration')}</Title>
+          </div>
+          <div className="data">
+            <Subtitle type="primary">
+              {t('chooseTickerSymbols')} {SOURCE_LIMIT}.
+            </Subtitle>
+            {state.map(s => {
+              return (
+                <div key={s.id} className="configuration-row">
+                  <input
+                    onChange={handleChange}
+                    checked={s.checked}
+                    type="checkbox"
+                    id={s.id}
+                    name={s.id}
+                    value={`t${s.id}`}
+                  />
+                  <label htmlFor={s.id}>{s.id}</label>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

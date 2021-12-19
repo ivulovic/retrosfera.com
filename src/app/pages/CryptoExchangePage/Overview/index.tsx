@@ -11,6 +11,7 @@ import './style.scss';
 import SettingsOutline from 'app/icons/SettingsOutline';
 import { useSelector } from 'react-redux';
 import { selectLoading } from '../selectors';
+import { Helmet } from 'react-helmet-async';
 
 export default function OverviewPage() {
   const isLoading = useSelector(selectLoading);
@@ -40,39 +41,44 @@ export default function OverviewPage() {
   }
 
   return (
-    <div className="cryptoexchange-overview">
-      <div className="page-info">
-        <div className="header">
-          <h4>
-            <Link to={url}>{t('cryptoexchangeTitle')}</Link>
-          </h4>
-          <Title>{t('overview')}</Title>
-        </div>
-        <div className="data">
-          <div className="space-between">
-            <Subtitle type="primary">{t('cryptocurrencyData')}</Subtitle>
-            <Link to={`${url}/configuration`}>
-              <SettingsOutline />
-            </Link>
+    <>
+      <Helmet>
+        <title>{t('cryptoexchangeTitle')}</title>
+      </Helmet>
+      <div className="cryptoexchange-overview">
+        <div className="page-info">
+          <div className="header">
+            <h4>
+              <Link to={url}>{t('cryptoexchangeTitle')}</Link>
+            </h4>
+            <Title>{t('overview')}</Title>
           </div>
-          {data.length ? (
-            <SymbolsTable rows={data} />
-          ) : (
-            <Subtitle>
-              {t('selectCryptocurrencies')}{' '}
-              <Link to={`${url}/configuration`}>{t('configuration')}.</Link>{' '}
-            </Subtitle>
-          )}
-        </div>
-        <div className="data">
-          <Subtitle type="primary">{t('yourCryptocurrencyData')}</Subtitle>
-          {rows.length ? (
-            <SharesTable rows={rows} />
-          ) : (
-            <Subtitle>{t('noCryptocurrencyShares')}</Subtitle>
-          )}
+          <div className="data">
+            <div className="space-between">
+              <Subtitle type="primary">{t('cryptocurrencyData')}</Subtitle>
+              <Link to={`${url}/configuration`}>
+                <SettingsOutline />
+              </Link>
+            </div>
+            {data.length ? (
+              <SymbolsTable rows={data} />
+            ) : (
+              <Subtitle>
+                {t('selectCryptocurrencies')}{' '}
+                <Link to={`${url}/configuration`}>{t('configuration')}.</Link>{' '}
+              </Subtitle>
+            )}
+          </div>
+          <div className="data">
+            <Subtitle type="primary">{t('yourCryptocurrencyData')}</Subtitle>
+            {rows.length ? (
+              <SharesTable rows={rows} />
+            ) : (
+              <Subtitle>{t('noCryptocurrencyShares')}</Subtitle>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

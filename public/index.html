@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon64x64.ico" />
@@ -13,15 +13,33 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <meta property="og:title" content="Ретросфера" />
     <meta property="og:description" content="Ретросфера" />
-    <meta
-      property="og:image"
-      content="%PUBLIC_URL%/logo512.png"
-    />
+    <meta property="og:image" content="%PUBLIC_URL%/logo512.png" />
     <title>Ретросфера</title>
     <meta
       name="description"
-      content=""
+      content="Ретросфера - Информације у секунди. Дневна статистика вируса корона. Статистика загађења ваздуха. Сфера апликација - листа жеља, криптоберза и многе друге."
     />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="https://retrosfera.com/sitemap.xml"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-THEWH80ESZ"
+    ></script>
+    <script>
+      if (location.protocol === 'https:') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          window.dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-THEWH80ESZ');
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

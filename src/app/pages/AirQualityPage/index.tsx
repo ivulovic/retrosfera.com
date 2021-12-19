@@ -11,6 +11,7 @@ import './style.scss';
 import formatNumber from 'utils/project/number/formatNumber';
 import Subtitle from 'app/components/Subtitle';
 import LoadingIndicator from 'app/components/LoadingIndicator';
+import { Helmet } from 'react-helmet-async';
 
 export default function AirQualityPage(): JSX.Element {
   useInjectReducer({ key: AIR_QUALITY_SCOPE, reducer: reducer });
@@ -45,79 +46,84 @@ export default function AirQualityPage(): JSX.Element {
   }, [data]);
 
   return (
-    <div className="page-wrapper air-quality-page">
-      <Title>{t('airQualityTitle')}</Title>
-      <Subtitle>{t('airQualityDescription')}</Subtitle>
-      {isLoading && <LoadingIndicator />}
-      {dataArr.length && !isLoading ? (
-        <>
-          <div className="filter">
-            <select
-              className="select"
-              onChange={handleFilterChange}
-              value={filter}
-            >
-              <option value="all">{t('allCities')}</option>
-              {options.map(x => (
-                <option value={x}>{x}</option>
-              ))}
-            </select>
-          </div>
-          <table className="table">
-            <thead>
-              <th align="left">{t('city')}</th>
-              <th align="left">{t('stationPlace')}</th>
-              <th align="left">{t('status')}</th>
-              <th align="right">{t('value')}</th>
-            </thead>
-            <tbody>
-              {dataArr.map(x => {
-                return (
-                  <tr key={x.station.id} className="table-row">
-                    <td align="left">{x.station.city.toUpperCase()}</td>
-                    <td align="left">{x.station.name}</td>
-                    <td align="left">{t(getAirQualityStatus(x.value))}</td>
-                    <td align="right">{formatNumber(x.value, false, 2)}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <Subtitle>{t('metrics')}</Subtitle>
-          <table className="table">
-            <thead>
-              <th align="left">{t('status')}</th>
-              <th align="right">{t('value')}</th>
-            </thead>
-            <tbody>
-              {metrics.map(([from, to], i) => {
-                const isLast = metrics.length - 1 === i;
-                return (
-                  <tr key={i} className="table-row">
-                    <td align="left">{t(getAirQualityStatus(from))}</td>
-                    <td align="right">
-                      {isLast && (
-                        <>
-                          {formatNumber(from, false, 2)} {t('moreThan')}
-                        </>
-                      )}
-                      {!isLast && (
-                        <>
-                          {formatNumber(from, false, 2)}
-                          {' - '}
-                          {formatNumber(to, false, 2)}
-                        </>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </>
-      ) : (
-        <Subtitle>{t('noAirQualityData')}</Subtitle>
-      )}
-    </div>
+    <>
+      <Helmet>
+        <title>{t('airQualityTitle')}</title>
+      </Helmet>
+      <div className="page-wrapper air-quality-page">
+        <Title>{t('airQualityTitle')}</Title>
+        <Subtitle>{t('airQualityDescription')}</Subtitle>
+        {isLoading && <LoadingIndicator />}
+        {dataArr.length && !isLoading ? (
+          <>
+            <div className="filter">
+              <select
+                className="select"
+                onChange={handleFilterChange}
+                value={filter}
+              >
+                <option value="all">{t('allCities')}</option>
+                {options.map(x => (
+                  <option value={x}>{x}</option>
+                ))}
+              </select>
+            </div>
+            <table className="table">
+              <thead>
+                <th align="left">{t('city')}</th>
+                <th align="left">{t('stationPlace')}</th>
+                <th align="left">{t('status')}</th>
+                <th align="right">{t('value')}</th>
+              </thead>
+              <tbody>
+                {dataArr.map(x => {
+                  return (
+                    <tr key={x.station.id} className="table-row">
+                      <td align="left">{x.station.city.toUpperCase()}</td>
+                      <td align="left">{x.station.name}</td>
+                      <td align="left">{t(getAirQualityStatus(x.value))}</td>
+                      <td align="right">{formatNumber(x.value, false, 2)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <Subtitle>{t('metrics')}</Subtitle>
+            <table className="table">
+              <thead>
+                <th align="left">{t('status')}</th>
+                <th align="right">{t('value')}</th>
+              </thead>
+              <tbody>
+                {metrics.map(([from, to], i) => {
+                  const isLast = metrics.length - 1 === i;
+                  return (
+                    <tr key={i} className="table-row">
+                      <td align="left">{t(getAirQualityStatus(from))}</td>
+                      <td align="right">
+                        {isLast && (
+                          <>
+                            {formatNumber(from, false, 2)} {t('moreThan')}
+                          </>
+                        )}
+                        {!isLast && (
+                          <>
+                            {formatNumber(from, false, 2)}
+                            {' - '}
+                            {formatNumber(to, false, 2)}
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <Subtitle>{t('noAirQualityData')}</Subtitle>
+        )}
+      </div>
+    </>
   );
 }

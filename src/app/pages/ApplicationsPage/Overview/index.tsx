@@ -8,6 +8,7 @@ import cryptoexchangeComputer from 'app/images/cryptoexchange-preview.png';
 // import img from 'app/images/demoapp.png';
 import { useSelector } from 'react-redux';
 import { makeSelectIsUserAuthenticated } from 'app/providers/AuthProvider/selectors';
+import { Helmet } from 'react-helmet-async';
 
 export default function ApplicationOverview(): JSX.Element {
   const { t } = useTranslation();
@@ -57,14 +58,19 @@ export default function ApplicationOverview(): JSX.Element {
     // },
   ];
   return (
-    <div>
-      <Title>{t('applications')}</Title>
-      <Subtitle>{t('applicationsDescription')}</Subtitle>
-      <div className="card-list">
-        {cards.map(card => (
-          <Card {...card} key={card.id} />
-        ))}
+    <>
+      <Helmet>
+        <title>{t('applications')}</title>
+      </Helmet>
+      <div>
+        <Title>{t('applications')}</Title>
+        <Subtitle>{t('applicationsDescription')}</Subtitle>
+        <div className="card-list">
+          {cards.map(card => (
+            <Card {...card} key={card.id} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

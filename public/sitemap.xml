@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://retrosfera.com</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+<url>
+  <loc>https://retrosfera.com/air-quality</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+<url>
+  <loc>https://retrosfera.com/covid19</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+<url>
+  <loc>https://retrosfera.com/applications</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+<url>
+  <loc>https://retrosfera.com/settings</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+<url>
+  <loc>https://retrosfera.com/login</loc>
+  <lastmod>2021-12-18T20:34:23+00:00</lastmod>
+</url>
+
+</urlset>

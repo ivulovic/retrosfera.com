@@ -6,7 +6,6 @@ import { login } from 'app/providers/AuthProvider/actions';
 import { useTranslation } from 'react-i18next';
 import '../style.scss';
 import Input from 'app/components/Input';
-import { Link } from 'react-router-dom';
 import Button from 'app/components/Button';
 import Title from 'app/components/Title';
 
@@ -31,10 +30,9 @@ export function LoginPage() {
   const onSubmit = () => dispatch(login({ email, password }));
   return (
     <>
-      {/* <Helmet>
-        <title>{websiteMetaTitleLoginPage}</title>
-        <meta name="description" content={websiteMetaDescriptionLoginPage} />
-      </Helmet> */}
+      <Helmet>
+        <title>{t('login')}</title>
+      </Helmet>
       <div className="page-wrapper auth-page">
         <div className="auth-title">
           <Title>{t('login')}</Title>

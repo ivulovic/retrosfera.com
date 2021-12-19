@@ -1,5 +1,7 @@
 import LoadingIndicator from 'app/components/LoadingIndicator';
 import { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { withRouter } from 'react-router';
 import RealTimeDataProviderContext from '../RealTimeDataProvider/context';
 
@@ -8,6 +10,7 @@ import SharesCalculator from './shares-calculator';
 import './style.scss';
 
 function SymbolDetails(props: any): JSX.Element {
+  const { t } = useTranslation();
   const { symbol } = props.match.params;
 
   const ctx = useContext(RealTimeDataProviderContext);
@@ -23,10 +26,17 @@ function SymbolDetails(props: any): JSX.Element {
     );
 
   return (
-    <div className="cryptoexchange-details">
-      <SymbolBasicInfo item={item} />
-      <SharesCalculator item={item} />
-    </div>
+    <>
+      <Helmet>
+        <title>
+          {t('cryptoexchangeTitle')} {item?.displayName || ''}
+        </title>
+      </Helmet>
+      <div className="cryptoexchange-details">
+        <SymbolBasicInfo item={item} />
+        <SharesCalculator item={item} />
+      </div>
+    </>
   );
 }
 
